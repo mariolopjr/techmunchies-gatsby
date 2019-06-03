@@ -37,6 +37,9 @@ export const Theme = () => (
         margin: 0,
         padding: 0,
         textRendering: 'optimizeLegibility',
+      },
+      '::selection': {
+        background: colors.selectionColor,
       }
     }}
   />
