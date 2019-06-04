@@ -14,7 +14,6 @@ import Footer from "./footer"
 
 import styled from "@emotion/styled"
 import { colors, Theme } from "./styles"
-import "./layout.css"
 
 const Container = styled.div(
   {
