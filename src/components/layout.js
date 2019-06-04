@@ -22,7 +22,7 @@ const Container = styled.div(
   }
 )
 
-const Layout = ({ children }) => (
+const Layout = ({ children, styles }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -34,12 +34,12 @@ const Layout = ({ children }) => (
         }
       }
     `}
-    render={data => (
+    render = { data => (
       <>
         { Theme() }
-        <Container>
+        <Container css={styles}>
           <Header siteName={data.site.siteMetadata.site} />
-          <main>{children}</main>
+          {children}
           <Footer siteName={data.site.siteMetadata.site} />
         </Container>
       </>

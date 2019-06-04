@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 
@@ -11,30 +11,41 @@ const Nav = styled.nav(
     display: 'flex',
     background: 'none',
     minHeight: '3.25rem',
-    padding: '0.15rem 0.3rem',
     position: 'relative',
     zIndex: 30,
   }
 )
 
+const navContainerStates = {
+  true: {
+    display: 'block',
+  },
+}
+
 const NavContainer = styled.div(
   {
-    flexGrow: 1,
-    flexShrink: 0,
-    alignItems: 'stretch',
-    display: 'flex',
-  }
+    display: 'none',
+    transition: 'max-height .2s ease-out',
+
+    '@media screen and (min-width: 1088px)' : {
+      flexGrow: 1,
+      flexShrink: 0,
+      alignItems: 'stretch',
+      display: 'flex',
+    }
+  },
+
+  props => navContainerStates[props.state]
 )
 
 const NavContainerEnd = styled.div(
   {
-    alignItems: 'stretch',
-    display: 'flex',
-    justifyContent: 'flex-start',
+    justifyContent: 'flex-end',
+    marginLeft: 'auto',
   }
 )
 
-const menuStates = {
+const menuButtonStates = {
   true: {
     backgroundColor: 'rgba(0,0,0,.05)',
     color: 'white',
@@ -72,7 +83,7 @@ const MenuButton = styled.a(
     }
   },
 
-  props => menuStates[props.state],
+  props => menuButtonStates[props.state]
 )
 
 const MenuButtonBar = styled.span(
@@ -104,6 +115,7 @@ const MenuButtonBar = styled.span(
 
 const NavBrand = styled.div(
   {
+    flexGrow: 1,
     flexShrink: 0,
     alignItems: 'stretch',
     display: 'flex',
@@ -121,12 +133,19 @@ const NavBrandLink = styled(Link)(
     flexShrink: 0,
     textDecoration: 'none',
     lineHeight: 1.5,
-    padding: '.5rem .75rem',
+    padding: '1rem 1.25rem',
     position: 'relative',
 
     ':active, :hover, :focus': {
       color: 'white',
     }
+  }
+)
+
+const NavLinkContainer = styled.div(
+  {
+    display: 'flex',
+    justifyContent: 'flex-start',
   }
 )
 
@@ -156,8 +175,12 @@ const NavLink = styled(Link)(
     flexShrink: 0,
     textDecoration: 'none',
     lineHeight: 1.5,
-    padding: '.5rem .75rem',
+    padding: '1rem 1.25rem',
     position: 'relative',
+
+    ':not(:first-of-type):not(:last-of-type)': {
+      padding: '1rem 0.625rem',
+    },
 
     ':before, :after': {
       content: '""',
@@ -182,6 +205,8 @@ const NavLink = styled(Link)(
     },
 
     ':active, :hover, :focus': {
+      color: 'white',
+
       ':before, :after': {
         opacity: 1,
         transform: 'translateY(0)',
@@ -229,23 +254,27 @@ const Header = ({ siteName }) => {
           />
         </MenuButton>
       </NavBrand>
-      <NavContainer>
+      <NavContainer
+        state={menu}
+      >
         <NavContainerEnd>
-          <NavLink
-            to="/"
-          >
-            home
-          </NavLink>
-          <NavLink
-            to="/projects/"
-          >
-            projects
-          </NavLink>
-          <NavLink
-            to="/blog/"
-          >
-            blog
-          </NavLink>
+          <NavLinkContainer>
+            <NavLink
+              to="/"
+            >
+              home
+            </NavLink>
+            <NavLink
+              to="/projects/"
+            >
+              projects
+            </NavLink>
+            <NavLink
+              to="/blog/"
+            >
+              blog
+            </NavLink>
+          </NavLinkContainer>
         </NavContainerEnd>
       </NavContainer>
     </Nav>
