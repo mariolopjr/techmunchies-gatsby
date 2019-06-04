@@ -135,8 +135,8 @@ const duration = '.2s'
 const distance = '8px'
 const easeOutBack = 'cubic-bezier(0.175, 0.885, 0.320, 1.275)'
 
-const currentPage = {
-  'page': {
+const NavLinkActiveStyle = {
+  true: {
     ':after': {
       opacity: 1,
       transform: 'translateY(0)',
@@ -197,7 +197,7 @@ const NavLink = styled(Link)(
     },
   },
 
-  props => currentPage[props.ariaCurrent]
+  props => NavLinkActiveStyle[props.isCurrent]
 )
 
 const Header = ({ siteName }) => {
