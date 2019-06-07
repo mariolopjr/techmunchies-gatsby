@@ -1,32 +1,37 @@
 import React from "react"
-import { StaticQuery, graphql } from "gatsby"
+import PropTypes from "prop-types"
 import Img from "gatsby-image"
 
-/*
- * This component is built using `gatsby-image` to automatically serve optimized
- * images with lazy loading and reduced file sizes. The image is loaded using a
- * `StaticQuery`, which allows us to load the image from directly within this
- * component, rather than having to pass the image data down from pages.
- *
- * For more information, see the docs:
- * - `gatsby-image`: https://gatsby.dev/gatsby-image
- * - `StaticQuery`: https://gatsby.dev/staticquery
- */
+import styled from "@emotion/styled"
 
-// const Image = () => (
-//   <StaticQuery
-//     query={graphql`
-//       query {
-//         placeholderImage: file(relativePath: { eq: "gatsby-astronaut.png" }) {
-//           childImageSharp {
-//             fluid(maxWidth: 300) {
-//               ...GatsbyImageSharpFluid
-//             }
-//           }
-//         }
-//       }
-//     `}
-//     render={data => <Img fluid={data.placeholderImage.childImageSharp.fluid} />}
-//   />
-// )
-// export default Image
+const ImageStyled = styled(Img)(
+  {
+    boxShadow: '0 3px 8px 0 rgba(0,0,0,0.4), 0 0 0 1px rgba(0,0,0,0.16)',
+    borderRadius: 4,
+    border: 0,
+    maxWidth: 660,
+    opacity: 0.7,
+    transition: 'all 0.3s ease-in-out',
+
+    ':active, :focus, :hover': {
+        boxShadow: '0 16px 38px -12px rgba(0,0,0,.56), 0 4px 25px 0 rgba(0,0,0,.12), 0 8px 10px -5px rgba(0,0,0,.2)',
+        cursor: 'pointer',
+        opacity: 1,
+        transition: 'all 0.3s ease-in-out',
+    }
+  }
+)
+
+const Image = ({ children, sizes, styles }) => (
+  <ImageStyled css={styles} sizes={sizes}>
+    {children}
+  </ImageStyled>
+)
+
+Image.propTypes = {
+  children: PropTypes.node.isRequired,
+  sizes: PropTypes.node.isRequired,
+  styles: PropTypes.node,
+}
+
+export default Image

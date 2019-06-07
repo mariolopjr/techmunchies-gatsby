@@ -74,7 +74,7 @@ const IndexPage = () => (
     `}
     render={data => (
       <Layout styles={homeFullPage}>
-        <SEO title="Home" />
+        <SEO title="home" />
         <HomeBody>
           <TitleContainer>
             <Title>
