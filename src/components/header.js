@@ -239,7 +239,7 @@ const Header = ({ siteName }) => {
         <MenuButton
           role="button"
           aria-label="menu"
-          aria-expanded="false"
+          aria-expanded={menu}
           onClick={() => showMenu(!menu)}
           state={menu}
         >

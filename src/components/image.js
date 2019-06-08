@@ -23,15 +23,12 @@ const ImageStyled = styled(Img)(
 )
 
 const Image = ({ children, sizes, styles }) => (
-  <ImageStyled css={styles} sizes={sizes}>
-    {children}
-  </ImageStyled>
+  <ImageStyled css={styles} sizes={sizes} />
 )
 
 Image.propTypes = {
-  children: PropTypes.node.isRequired,
-  sizes: PropTypes.node.isRequired,
-  styles: PropTypes.node,
+  sizes: PropTypes.object.isRequired,
+  styles: PropTypes.object,
 }
 
 export default Image

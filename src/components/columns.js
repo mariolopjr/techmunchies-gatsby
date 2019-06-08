@@ -27,7 +27,7 @@ const Columns = ({ children, styles }) => (
 
 Columns.propTypes = {
   children: PropTypes.node.isRequired,
-  styles: PropTypes.node,
+  styles: PropTypes.object,
 }
 
 export default Columns

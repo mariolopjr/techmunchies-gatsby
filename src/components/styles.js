@@ -5,6 +5,9 @@ import { Global } from '@emotion/core'
 export const colors = {
   bodybgcolor: 'rgb(204, 204, 204)',
   bgcolor: '#3b424d',
+  modalBgColor: '#ccc',
+  modalTextColor: '#3b424d',
+  modalBtnHoverColor: 'rgba(10,10,10,.2)',
   textcolor: '#ccc',
   selectionColor: '#99a6b2',
   colorAccent: '#fff',

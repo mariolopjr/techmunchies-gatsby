@@ -4,11 +4,12 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-import Section from "../components/section"
-import Container from "../components/container"
 import Columns from "../components/columns"
 import Column from "../components/column"
+import Container from "../components/container"
 import Image from "../components/image"
+import Modal from "../components/modal"
+import Section from "../components/section"
 
 import { css } from "@emotion/core"
 
@@ -44,7 +45,6 @@ const ProjectPage = ({ data }) => {
               .map(({ node: post }) => (
                 <Column
                   key={post.id}
-                  data-modal="project"
                   onClick={() => {
                     showModal(!modal)
                     setTitle(post.frontmatter.title)
@@ -57,19 +57,11 @@ const ProjectPage = ({ data }) => {
             }
           </Columns>
         </Container>
-        <div className={`modal`} state={modal}>
-          <div className="modal-background" onClick={() => showModal(!modal)}></div>
-          <div className="modal-content">
-            <div className="has-text-centered is-size-2">
-              {title}
-            </div>
-          </div>
-          <button
-            className="modal-close is-large"
-            aria-label="close"
-            onClick={() => showModal(!modal)}
-          ></button>
-        </div>
+        <Modal
+          onClick={() => showModal(!modal)}
+          state={modal}
+          title={title}
+        />
       </Section>
     </Layout>
   )
