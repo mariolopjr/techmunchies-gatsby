@@ -9,14 +9,15 @@ const SectionStyled = styled.section(
   }
 )
 
-const Section = ({ children }) => (
-  <SectionStyled>
+const Section = ({ children, styles }) => (
+  <SectionStyled css={styles}>
     {children}
   </SectionStyled>
 )
 
 Section.propTypes = {
   children: PropTypes.node.isRequired,
+  styles: PropTypes.object,
 }
 
 export default Section
