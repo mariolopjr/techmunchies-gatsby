@@ -2,8 +2,10 @@ import fetch from "node-fetch"
 
 const { CLOUDFLARE_ZONE_ID, CLOUDFLARE_EMAIL, CLOUDFLARE_AUTH_KEY } = process.env
 
-exports.handler = async () => {
+exports.handler = async (event, context) => {
   const apiUrl = `https://api.cloudflare.com/client/v4/zones/${CLOUDFLARE_ZONE_ID}/purge_cache`
+  console.log(event)
+  console.log(context)
 
   // Purge Cloudflare
   return fetch(apiUrl, {
