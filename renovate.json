@@ -7,5 +7,5 @@
   "prConcurrentLimit": 20,
   "rebaseStalePrs": false,
   "rangeStrategy": "bump",
-  "bumpVersion": null,
+  "bumpVersion": null
 }
