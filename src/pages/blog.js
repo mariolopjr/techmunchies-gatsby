@@ -19,12 +19,21 @@ const sectionStyles = css(
 
 const PostLinkContainer = styled.div(
   {
+    color: 'white',
     margin: '0 auto',
     maxWidth: '30em',
+    opacity: 0.7,
 
     ':not(:last-of-type)': {
       marginBottom: '0.5rem',
     }
+  }
+)
+
+const PostDate = styled.small(
+  {
+    display: 'block',
+    margin: '2px 0 1rem 0',
   }
 )
 
@@ -44,7 +53,7 @@ const BlogPage = () => (
               }
               frontmatter {
                 title
-                date
+                date(formatString: "MMMM DD, YYYY")
               }
             }
           }
@@ -64,8 +73,7 @@ const BlogPage = () => (
                   <BlogLink to={post.fields.slug}>
                     {post.frontmatter.title}
                   </BlogLink>
-                  <br />
-                  <small>{post.frontmatter.date}</small>
+                  <PostDate>{post.frontmatter.date}</PostDate>
                 </PostLinkContainer>
               ))}
           </Container>
