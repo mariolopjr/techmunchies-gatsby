@@ -17,6 +17,7 @@
     "gatsby-plugin-manifest": "^2.1.1",
     "gatsby-plugin-netlify": "^2.0.17",
     "gatsby-plugin-netlify-cache": "^1.2.0",
+    "gatsby-plugin-netlify-functions": "0.0.3",
     "gatsby-plugin-offline": "^2.1.1",
     "gatsby-plugin-react-helmet": "^3.0.12",
     "gatsby-plugin-robots-txt": "^1.4.0",
@@ -49,6 +50,7 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
+    "build:lambda": "netlify-lambda build src/lambda",
     "develop": "gatsby develop",
     "flow": "node_modules/.bin/flow",
     "format": "prettier --write src/**/*.{js,jsx}",

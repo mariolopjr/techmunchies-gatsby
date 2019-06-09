@@ -72,6 +72,13 @@ module.exports = {
     // `gatsby-plugin-sri`, // Issues with certain SRI hashes for webpack, etc.
     `gatsby-plugin-netlify-cache`,
     {
+      resolve: `gatsby-plugin-netlify-functions`,
+      options: {
+        functionsSrc: `${__dirname}/src/lambda`,
+        functionsOutput: `${__dirname}/lambda`,
+      },
+    },
+    {
       resolve: `gatsby-plugin-netlify`,
       options: {
         headers: {
