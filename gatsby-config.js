@@ -74,7 +74,25 @@ module.exports = {
     {
       resolve: `gatsby-plugin-netlify`,
       options: {
-        headers: {},
+        headers: {
+          "/*": [
+            "Cache-Control: public, max-age=31536000, immutable",
+            "Content-Security-Policy: script-src 'self' 'unsafe-inline'",
+            "Referrer-Policy: same-origin",
+            "Strict-Transport-Security: max-age=31536000; includeSubDomains; preload",
+          ],
+          "/*.js": [
+            "X-Content-Type-Options: nosniff",
+          ],
+          "/sw.js": [
+            "Cache-Control: no-cache",
+          ],
+          "/*.html": [
+            "Cache-Control: no-cache",
+            "X-Frame-Options: DENY",
+            "X-XSS-Protection: 1; mode=block",
+          ],
+        },
         allPageHeaders: [],
         mergeSecurityHeaders: true,
         mergeLinkHeaders: true,
