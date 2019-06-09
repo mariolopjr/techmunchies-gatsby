@@ -69,7 +69,7 @@ module.exports = {
     `gatsby-plugin-robots-txt`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-emotion`,
-    `gatsby-plugin-sri`,
+    // `gatsby-plugin-sri`, // Issues with certain SRI hashes for webpack, etc.
     `gatsby-plugin-netlify-cache`,
     {
       resolve: `gatsby-plugin-netlify`,
