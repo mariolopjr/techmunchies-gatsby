@@ -3,26 +3,22 @@ import PropTypes from "prop-types"
 
 import styled from "@emotion/styled"
 
-const ColumnsStyled = styled.div(
-  {
-    marginLeft: '-.75rem',
-    marginRight: '-.75rem',
-    marginTop: '-.75rem',
+const ColumnsStyled = styled.div({
+  marginLeft: "-.75rem",
+  marginRight: "-.75rem",
+  marginTop: "-.75rem",
 
-    ':last-of-type': {
-      marginBottom: '-.75rem',
-    },
+  ":last-of-type": {
+    marginBottom: "-.75rem",
+  },
 
-    '@media print, screen and (min-width: 769px)': {
-      display: 'flex',
-    },
-  }
-)
+  "@media print, screen and (min-width: 769px)": {
+    display: "flex",
+  },
+})
 
 const Columns = ({ children, styles }) => (
-  <ColumnsStyled css={styles}>
-    {children}
-  </ColumnsStyled>
+  <ColumnsStyled css={styles}>{children}</ColumnsStyled>
 )
 
 Columns.propTypes = {

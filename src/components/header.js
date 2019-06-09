@@ -3,65 +3,61 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 
 import styled from "@emotion/styled"
-import { colors } from './styles'
+import { colors } from "./styles"
 
-const Nav = styled.nav(
-  {
-    alignItems: 'stretch',
-    display: 'flex',
-    background: 'none',
-    minHeight: '3.25rem',
-    position: 'relative',
-    zIndex: 30,
-  }
-)
+const Nav = styled.nav({
+  alignItems: "stretch",
+  display: "flex",
+  background: "none",
+  minHeight: "3.25rem",
+  position: "relative",
+  zIndex: 30,
+})
 
 const navContainerStates = {
   true: {
-    display: 'block',
+    display: "block",
   },
 }
 
 const NavContainer = styled.div(
   {
-    display: 'none',
-    transition: 'max-height .2s ease-out',
+    display: "none",
+    transition: "max-height .2s ease-out",
 
-    '@media screen and (min-width: 1088px)' : {
+    "@media screen and (min-width: 1088px)": {
       flexGrow: 1,
       flexShrink: 0,
-      alignItems: 'stretch',
-      display: 'flex',
-    }
+      alignItems: "stretch",
+      display: "flex",
+    },
   },
 
   props => navContainerStates[props.state]
 )
 
-const NavContainerEnd = styled.div(
-  {
-    justifyContent: 'flex-end',
-    marginLeft: 'auto',
-  }
-)
+const NavContainerEnd = styled.div({
+  justifyContent: "flex-end",
+  marginLeft: "auto",
+})
 
 const menuButtonStates = {
   true: {
-    backgroundColor: 'rgba(0,0,0,.05)',
-    color: 'white',
+    backgroundColor: "rgba(0,0,0,.05)",
+    color: "white",
     outlineWidth: 0,
 
-    '> span': {
-      ':first-of-type': {
-        transform: 'translateY(5px) rotate(45deg)',
+    "> span": {
+      ":first-of-type": {
+        transform: "translateY(5px) rotate(45deg)",
       },
 
-      ':nth-of-type(2)': {
+      ":nth-of-type(2)": {
         opacity: 0,
       },
 
-      ':nth-of-type(3)': {
-        transform: 'translateY(-5px) rotate(-45deg)',
+      ":nth-of-type(3)": {
+        transform: "translateY(-5px) rotate(-45deg)",
       },
     },
   },
@@ -70,155 +66,147 @@ const menuButtonStates = {
 const MenuButton = styled.a(
   {
     color: colors.textcolor,
-    cursor: 'pointer',
-    display: 'block',
-    height: '3.25rem',
-    position: 'relative',
-    width: '3.25rem',
-    marginLeft: 'auto',
-    textDecoration: 'none',
+    cursor: "pointer",
+    display: "block",
+    height: "3.25rem",
+    position: "relative",
+    width: "3.25rem",
+    marginLeft: "auto",
+    textDecoration: "none",
 
-    '@media screen and (min-width: 1088px)' : {
-      display: 'none',
-    }
+    "@media screen and (min-width: 1088px)": {
+      display: "none",
+    },
   },
 
   props => menuButtonStates[props.state]
 )
 
-const MenuButtonBar = styled.span(
-  {
-    backgroundColor: 'currentColor',
-    display: 'block',
-    height: 1,
-    left: 'calc(50% - 8px)',
-    position: 'absolute',
-    transformOrigin: 'center',
-    transitionDuration: '86ms',
-    transitionProperty: 'background-color, opacity, transform',
-    transitionTimingFunction: 'ease-out',
-    width: 16,
+const MenuButtonBar = styled.span({
+  backgroundColor: "currentColor",
+  display: "block",
+  height: 1,
+  left: "calc(50% - 8px)",
+  position: "absolute",
+  transformOrigin: "center",
+  transitionDuration: "86ms",
+  transitionProperty: "background-color, opacity, transform",
+  transitionTimingFunction: "ease-out",
+  width: 16,
 
-    ':first-of-type': {
-      top: 'calc(50% - 6px)',
-    },
+  ":first-of-type": {
+    top: "calc(50% - 6px)",
+  },
 
-    ':nth-of-type(2)': {
-      top: 'calc(50% - 1px)',
-    },
+  ":nth-of-type(2)": {
+    top: "calc(50% - 1px)",
+  },
 
-    ':nth-of-type(3)': {
-      top: 'calc(50% + 4px)',
-    },
-  }
-)
+  ":nth-of-type(3)": {
+    top: "calc(50% + 4px)",
+  },
+})
 
-const NavBrand = styled.div(
-  {
-    flexGrow: 1,
-    flexShrink: 0,
-    alignItems: 'stretch',
-    display: 'flex',
-    minHeight: '3.25rem',
-  }
-)
+const NavBrand = styled.div({
+  flexGrow: 1,
+  flexShrink: 0,
+  alignItems: "stretch",
+  display: "flex",
+  minHeight: "3.25rem",
+})
 
-const NavBrandLink = styled(Link)(
-  {
-    color: colors.textcolor,
-    cursor: 'pointer',
-    alignItems: 'center',
-    display: 'flex',
-    flexGrow: 0,
-    flexShrink: 0,
-    textDecoration: 'none',
-    lineHeight: 1.5,
-    padding: '1rem 1.25rem',
-    position: 'relative',
+const NavBrandLink = styled(Link)({
+  color: colors.textcolor,
+  cursor: "pointer",
+  alignItems: "center",
+  display: "flex",
+  flexGrow: 0,
+  flexShrink: 0,
+  textDecoration: "none",
+  lineHeight: 1.5,
+  padding: "1rem 1.25rem",
+  position: "relative",
 
-    ':active, :hover, :focus': {
-      color: 'white',
-    }
-  }
-)
+  ":active, :hover, :focus": {
+    color: "white",
+  },
+})
 
-const NavLinkContainer = styled.div(
-  {
-    display: 'flex',
-    justifyContent: 'flex-start',
-  }
-)
+const NavLinkContainer = styled.div({
+  display: "flex",
+  justifyContent: "flex-start",
+})
 
 // NavLink settings
-const duration = '.2s'
-const distance = '8px'
-const easeOutBack = 'cubic-bezier(0.175, 0.885, 0.320, 1.275)'
+const duration = ".2s"
+const distance = "8px"
+const easeOutBack = "cubic-bezier(0.175, 0.885, 0.320, 1.275)"
 
 const NavLinkActiveStyle = {
   true: {
-    ':after': {
+    ":after": {
       opacity: 1,
-      transform: 'translateY(0)',
-      transition: 'none',
+      transform: "translateY(0)",
+      transition: "none",
       backgroundColor: colors.textcolor,
     },
-  }
+  },
 }
 
 const NavLink = styled(Link)(
   {
     color: colors.textcolor,
-    cursor: 'pointer',
-    alignItems: 'center',
-    display: 'flex',
+    cursor: "pointer",
+    alignItems: "center",
+    display: "flex",
     flexGrow: 0,
     flexShrink: 0,
-    textDecoration: 'none',
+    textDecoration: "none",
     lineHeight: 1.5,
-    padding: '1rem 1.25rem',
-    position: 'relative',
+    padding: "1rem 1.25rem",
+    position: "relative",
 
-    ':not(:first-of-type):not(:last-of-type)': {
-      padding: '1rem 0.625rem',
+    ":not(:first-of-type):not(:last-of-type)": {
+      padding: "1rem 0.625rem",
     },
 
-    ':before, :after': {
+    ":before, :after": {
       content: '""',
-      position: 'absolute',
-      bottom: '2px',
+      position: "absolute",
+      bottom: "2px",
       left: 0,
       right: 0,
-      height: '2px',
-      backgroundColor: 'white',
+      height: "2px",
+      backgroundColor: "white",
     },
 
-    ':before': {
+    ":before": {
       opacity: 0,
       transform: `translateY(-${distance})`,
       transition: `transform 0s ${easeOutBack}, opacity 0s`,
     },
 
-    ':after': {
+    ":after": {
       opacity: 0,
       transform: `translateY(${distance}/2)`,
       transition: `transform ${duration} ${easeOutBack}, opacity ${duration}`,
     },
 
-    ':active, :hover, :focus': {
-      color: 'white',
+    ":active, :hover, :focus": {
+      color: "white",
 
-      ':before, :after': {
+      ":before, :after": {
         opacity: 1,
-        transform: 'translateY(0)',
+        transform: "translateY(0)",
       },
 
-      ':before': {
+      ":before": {
         transition: `transform ${duration} ${easeOutBack}, opacity ${duration}`,
       },
 
-      ':after': {
+      ":after": {
         transition: `transform 0s ${duration} ${easeOutBack}, opacity 0s ${duration}`,
-      }
+      },
     },
   },
 
@@ -231,11 +219,7 @@ const Header = ({ siteName }) => {
   return (
     <Nav>
       <NavBrand>
-        <NavBrandLink
-          to="/"
-        >
-          {siteName}
-        </NavBrandLink>
+        <NavBrandLink to="/">{siteName}</NavBrandLink>
         <MenuButton
           role="button"
           aria-label="menu"
@@ -243,37 +227,17 @@ const Header = ({ siteName }) => {
           onClick={() => showMenu(!menu)}
           state={menu}
         >
-          <MenuButtonBar
-            aria-hidden="true"
-          />
-          <MenuButtonBar
-            aria-hidden="true"
-          />
-          <MenuButtonBar
-            aria-hidden="true"
-          />
+          <MenuButtonBar aria-hidden="true" />
+          <MenuButtonBar aria-hidden="true" />
+          <MenuButtonBar aria-hidden="true" />
         </MenuButton>
       </NavBrand>
-      <NavContainer
-        state={menu}
-      >
+      <NavContainer state={menu}>
         <NavContainerEnd>
           <NavLinkContainer>
-            <NavLink
-              to="/"
-            >
-              home
-            </NavLink>
-            <NavLink
-              to="/projects/"
-            >
-              projects
-            </NavLink>
-            <NavLink
-              to="/blog/"
-            >
-              blog
-            </NavLink>
+            <NavLink to="/">home</NavLink>
+            <NavLink to="/projects/">projects</NavLink>
+            <NavLink to="/blog/">blog</NavLink>
           </NavLinkContainer>
         </NavContainerEnd>
       </NavContainer>

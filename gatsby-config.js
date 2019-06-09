@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
     site: `techmunchies`,
+    siteUrl: `https://techmunchies.net`,
     title: `take a byte`,
     subtitle: `seriously`,
     description: `Stuff`,
@@ -39,7 +40,16 @@ module.exports = {
             }
           },
           `gatsby-remark-responsive-iframe`,
-          `gatsby-remark-prismjs`,
+          `gatsby-remark-code-buttons`,
+          {
+            resolve: `gatsby-remark-vscode`,
+            options: {
+              colorTheme: 'Dark+ (default dark)',
+              prefersDarkTheme: 'Dark+ (default dark)',
+              prefersLightTheme: 'Light+ (default light)',
+              injectStyles: true,
+            },
+          },
         ],
       }
     },

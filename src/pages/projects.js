@@ -13,18 +13,14 @@ import Section from "../components/section"
 
 import { css } from "@emotion/core"
 
-const multiLine = css(
-  {
-    flexWrap: 'wrap',
-  }
-)
+const multiLine = css({
+  flexWrap: "wrap",
+})
 
-const halfColumn = css(
-  {
-    width: '50%',
-    padding: 0,
-  }
-)
+const halfColumn = css({
+  width: "50%",
+  padding: 0,
+})
 
 const ProjectPage = ({ data }) => {
   const { edges: posts } = data.allMarkdownRemark
@@ -33,7 +29,7 @@ const ProjectPage = ({ data }) => {
     return arr
   }, {})
   const [modal, showModal] = useState(false)
-  const [title, setTitle] = useState('')
+  const [title, setTitle] = useState("")
 
   return (
     <Layout>
@@ -41,27 +37,21 @@ const ProjectPage = ({ data }) => {
       <Section>
         <Container>
           <Columns styles={multiLine}>
-            {posts
-              .map(({ node: post }) => (
-                <Column
-                  key={post.id}
-                  onClick={() => {
-                    showModal(!modal)
-                    setTitle(post.frontmatter.title)
-                  }}
-                  styles={halfColumn}
-                >
-                  <Image sizes={covers[post.parent.relativeDirectory]} />
-                </Column>
-              ))
-            }
+            {posts.map(({ node: post }) => (
+              <Column
+                key={post.id}
+                onClick={() => {
+                  showModal(!modal)
+                  setTitle(post.frontmatter.title)
+                }}
+                styles={halfColumn}
+              >
+                <Image sizes={covers[post.parent.relativeDirectory]} />
+              </Column>
+            ))}
           </Columns>
         </Container>
-        <Modal
-          onClick={() => showModal(!modal)}
-          state={modal}
-          title={title}
-        />
+        <Modal onClick={() => showModal(!modal)} state={modal} title={title} />
       </Section>
     </Layout>
   )
@@ -92,16 +82,18 @@ export const pageQuery = graphql`
         }
       }
     }
-    allFile(filter: {
-      sourceInstanceName: { eq: "content" },
-      relativePath: { regex: "/projects/" },
-      extension: { in: ["jpg", "png"] }
-    }) {
+    allFile(
+      filter: {
+        sourceInstanceName: { eq: "content" }
+        relativePath: { regex: "/projects/" }
+        extension: { in: ["jpg", "png"] }
+      }
+    ) {
       edges {
         node {
           id
           childImageSharp {
-            sizes(maxWidth:570) {
+            sizes(maxWidth: 570) {
               ...GatsbyImageSharpSizes_withWebp_tracedSVG
             }
           }

@@ -15,12 +15,10 @@ import Footer from "./footer"
 import styled from "@emotion/styled"
 import { colors, Theme } from "./styles"
 
-const Container = styled.div(
-  {
-    backgroundColor: colors.bgcolor,
-    minHeight: '100vh',
-  }
-)
+const Container = styled.div({
+  backgroundColor: colors.bgcolor,
+  minHeight: "100vh",
+})
 
 const Layout = ({ children, styles }) => (
   <StaticQuery
@@ -34,9 +32,9 @@ const Layout = ({ children, styles }) => (
         }
       }
     `}
-    render = { data => (
+    render={data => (
       <>
-        { Theme() }
+        {Theme()}
         <Container css={styles}>
           <Header siteName={data.site.siteMetadata.site} />
           {children}

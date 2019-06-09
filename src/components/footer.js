@@ -2,16 +2,14 @@ import React from "react"
 import PropTypes from "prop-types"
 
 import styled from "@emotion/styled"
-import { colors, } from "./styles"
+import { colors } from "./styles"
 
-const Container = styled.footer(
-  {
-    color: colors.textcolor,
-    fontSize: '.75rem',
-    padding: '0.5rem',
-    textAlign: 'center',
-  },
-)
+const Container = styled.footer({
+  color: colors.textcolor,
+  fontSize: ".75rem",
+  padding: "0.5rem",
+  textAlign: "center",
+})
 
 const Footer = ({ siteName }) => (
   <Container>
@@ -26,6 +24,5 @@ Footer.propTypes = {
 Footer.defaultProps = {
   siteName: ``,
 }
-
 
 export default Footer
