@@ -6,7 +6,7 @@ exports.handler = async () => {
   const apiUrl = `https://api.cloudflare.com/client/v4/zones/${CLOUDFLARE_ZONE_ID}/purge_cache`
 
   // Purge Cloudflare
-  fetch(apiUrl, {
+  return fetch(apiUrl, {
     headers: {
       "X-Auth-Email": CLOUDFLARE_EMAIL,
       "X-Auth-Key": CLOUDFLARE_AUTH_KEY,
