@@ -10,9 +10,14 @@ import Section from "../components/section"
 
 import { css } from "@emotion/core"
 import styled from "@emotion/styled"
+import { mq } from "../components/styles"
 
 const sectionStyles = css({
-  marginTop: "2.5rem",
+  marginTop: "-0.75rem",
+
+  [mq[0]]: {
+    marginTop: "2.5rem",
+  },
 })
 
 const PostLinkContainer = styled.div({

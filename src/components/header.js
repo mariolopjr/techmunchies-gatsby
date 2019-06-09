@@ -21,6 +21,7 @@ const navContainerStates = {
     left: 0,
     position: "absolute",
     top: "2.2rem",
+    width: "100%",
   },
 }
 

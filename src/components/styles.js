@@ -22,12 +22,10 @@ const sizes = [
   1472, // screen width
 ]
 
-export const mq = sizes.map(
-  bp => `@media screen and (min-width: ${bp}px)`,
-)
+export const mq = sizes.map(bp => `@media screen and (min-width: ${bp}px)`)
 
 export const mqp = sizes.map(
-  bp => `@media print, screen and (min-width: ${bp}px)`,
+  bp => `@media print, screen and (min-width: ${bp}px)`
 )
 
 export const global = {

@@ -10,7 +10,7 @@ import Section from "../components/section"
 
 import { css } from "@emotion/core"
 import styled from "@emotion/styled"
-import { colors } from "../components/styles"
+import { colors, mq } from "../components/styles"
 
 const sectionStyles = css({
   margin: "0 auto",
@@ -20,8 +20,12 @@ const sectionStyles = css({
 const columnStyles = css({
   color: "white",
   flex: "none",
-  marginLeft: "8.33333%",
+  marginLeft: "4.33333%",
   width: "83.33333%",
+
+  [mq[0]]: {
+    marginLeft: "8.33333%",
+  },
 })
 
 const PostContainer = styled.div({
@@ -29,12 +33,17 @@ const PostContainer = styled.div({
 })
 
 const PostTitle = styled.h1({
-  fontSize: "3rem",
-  fontWeight: 600,
+  fontSize: "2rem",
+  fontWeight: 500,
   lineHeight: 1.125,
   marginBottom: "1.5rem",
   textAlign: "center",
   wordBreak: "break-word",
+
+  [mq[0]]: {
+    fontSize: "3rem",
+    fontWeight: 600,
+  },
 })
 
 const PostDate = styled.p({
@@ -46,10 +55,14 @@ const PostDate = styled.p({
 })
 
 const PostDescription = styled.p({
-  fontSize: "2rem",
+  fontSize: "1.5rem",
   marginBottom: "1em",
   opacity: 0.8,
   textAlign: "center",
+
+  [mq[0]]: {
+    fontSize: "2rem",
+  },
 })
 
 const PostSeparator = styled.hr({
