@@ -1,5 +1,11 @@
 {
-  "extends": [
-    "config:base"
-  ]
+  "extends": ["config:base"],
+  "major": {
+    "enabled": false
+  },
+  "prHourlyLimit": 2,
+  "prConcurrentLimit": 20,
+  "rebaseStalePrs": false,
+  "rangeStrategy": "bump",
+  "bumpVersion": null,
 }
