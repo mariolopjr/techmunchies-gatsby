@@ -1,5 +1,4 @@
 ---
-templateKey: blog-post
 title: iPhone upgrade program and T-Mobile
 date: '2016-09-22T09:53:10-04:00'
 description: Apple iPhone Upgrade Program and T-Mobile incompatibility

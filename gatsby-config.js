@@ -4,7 +4,7 @@ module.exports = {
     siteUrl: `https://techmunchies.net`,
     title: `take a byte`,
     subtitle: `seriously`,
-    description: `Stuff`,
+    description: `software engineering for web apps, embedded systems, and mobile`,
     author: `@techmunchies`,
   },
   plugins: [
@@ -56,18 +56,33 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `techmunchies`,
+        short_name: `tm`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#CCC`,
+        theme_color: `#4A4A4A`,
         display: `minimal-ui`,
-        //icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/logo.svg`,
+        legacy: false,
       },
     },
     `gatsby-plugin-robots-txt`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-emotion`,
+    `gatsby-plugin-sri`,
+    `gatsby-plugin-netlify-cache`,
+    {
+      resolve: `gatsby-plugin-netlify`,
+      options: {
+        headers: {},
+        allPageHeaders: [],
+        mergeSecurityHeaders: true,
+        mergeLinkHeaders: true,
+        mergeCachingHeaders: true,
+        transformHeaders: (headers, path) => headers,
+        generateMatchPathRewrites: true,
+      },
+    },
     `gatsby-plugin-offline`,
   ],
 }

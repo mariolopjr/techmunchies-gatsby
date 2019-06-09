@@ -1,5 +1,4 @@
 ---
-templateKey: 'blog-post'
 title: 'Installing FreeBSD 9-RELEASE onto a ZFS root'
 date: '2013-07-20T20:20:10-04:00'
 description: >-

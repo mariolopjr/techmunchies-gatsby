@@ -1,5 +1,4 @@
 ---
-templateKey: blog-post
 title: Docker and macOS Sierra
 date: '2016-07-17T09:48:00-04:00'
 description: Issues using Docker with macOS Sierra beta? Read on for a fix!

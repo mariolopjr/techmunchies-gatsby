@@ -1,5 +1,4 @@
 ---
-templateKey: blog-post
 title: Cloning Plants for Fun
 date: 2016-07-03T22:50:00.000Z
 description: >-

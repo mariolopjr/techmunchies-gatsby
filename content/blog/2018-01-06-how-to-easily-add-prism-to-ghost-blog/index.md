@@ -1,5 +1,4 @@
 ---
-templateKey: blog-post
 title: How to Easily Add Prism to Ghost Blog
 date: '2018-01-06T09:56:34-05:00'
 description: >-
@@ -51,7 +50,7 @@ Since my Prism installation is custom, and I wanted to not have to custom code `
 To mark a section of text as code, Ghost (and most Markdown parsers) use three backticks [```](https://help.ghost.org/hc/en-us/articles/224410728-Markdown-Guide#writing-code). Use the three backticks to _fence_ in your code. Additionally, you can specify the syntax highlighter to highlight. Here's the general syntax:
 
 ###### Code
-````none
+````md
 ```js
 var materials = [
   'Hydrogen',
@@ -87,7 +86,7 @@ However, what if you'd like to show some console output? Utilizing my awesome Ja
 If you need to show general bash commands ran as root, you would do the following[^2]:
 
 ###### Code
-````none
+````md
 ```nonum-bash-l-root
 cd /usr/local/etc
 cp php.ini php.ini.bak
@@ -117,7 +116,7 @@ Let's break down the "language" I used. Notice how I used ```` ```nonum-bash-l-r
 Let's take a look at another example, with a standard user and some displayed output.
 
 ###### Code
-````none
+````md
 ```nonum-bash-l-chris-2,4-8
 pwd
 /usr/home/chris/bin
@@ -159,7 +158,7 @@ This utilizes line numbers to display output as it would in a console applicatio
 Now, what's one application where whitespace _really_ matters? Ever use PowerShell and format its output as a table? Makes the output look great, however, correctly displaying the syntax and output in your Ghost blog has never been easier. Let's take a look:
 
 ###### Code
-````none
+````md
 ```nonum-powershell-PSC:\Users\Chris>-ps-2-19
 dir
 
@@ -221,7 +220,7 @@ You may use nonum to not display line numbers for a code block. This may be usef
 
 
 ###### Code
-````none
+````md
 ```nonum-js
 var materials = [
   'Hydrogen',
@@ -257,7 +256,7 @@ As always, if there are any questions, please send me an email and I will try to
 If you were wondering how I was able to show the code block syntax within a code block, then you will not be disappointed. Essentially, if you _nest_ the backticks, i.e. the outer backticks have an additional backtick than the nested one, then it will nest the code. This can (presumably) go on infinitely.
 
 ###### Code
-`````none
+`````md
 ````none
 ```nonum-bash-l-root
 cd /usr/local/etc

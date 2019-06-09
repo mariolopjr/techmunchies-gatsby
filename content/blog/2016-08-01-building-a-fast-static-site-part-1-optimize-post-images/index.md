@@ -1,5 +1,4 @@
 ---
-templateKey: blog-post
 title: 'Building a Fast Static Site: Part 1 - Optimize Post Images'
 date: '2016-08-01T09:51:19-04:00'
 description: >-

@@ -12,14 +12,17 @@ import Modal from "../components/modal"
 import Section from "../components/section"
 
 import { css } from "@emotion/core"
+import { mqp } from "../components/styles"
 
 const multiLine = css({
   flexWrap: "wrap",
 })
 
 const halfColumn = css({
-  width: "50%",
-  padding: 0,
+  [mqp[0]]: {
+    width: "50%",
+    padding: 0,
+  },
 })
 
 const ProjectPage = ({ data }) => {

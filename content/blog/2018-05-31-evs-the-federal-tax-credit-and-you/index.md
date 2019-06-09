@@ -1,5 +1,4 @@
 ---
-templateKey: blog-post
 title: 'EVs, the Federal Tax Credit, and You'
 date: '2018-05-31T19:46:16-04:00'
 draft: true

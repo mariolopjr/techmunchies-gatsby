@@ -2,21 +2,22 @@ import React from "react"
 import PropTypes from "prop-types"
 
 import styled from "@emotion/styled"
+import { mq } from "./styles"
 
 const ContainerStyled = styled.div({
   margin: "0 auto",
 
-  "@media screen and (min-width: 1088px)": {
+  [mq[1]]: {
     maxWidth: 960,
     width: 960,
   },
 
-  "@media screen and (min-width: 1280px)": {
+  [mq[2]]: {
     maxWidth: 1152,
     width: 1152,
   },
 
-  "@media screen and (min-width: 1472px)": {
+  [mq[3]]: {
     maxWidth: 1344,
     width: 1344,
   },

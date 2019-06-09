@@ -15,6 +15,21 @@ export const colors = {
     Cantarell,Fira Sans,Droid Sans,Helvetica Neue,Helvetica,Arial,sans-serif;`,
 }
 
+const sizes = [
+  769, // desktop
+  1088, // screen width
+  1280, // screen width
+  1472, // screen width
+]
+
+export const mq = sizes.map(
+  bp => `@media screen and (min-width: ${bp}px)`,
+)
+
+export const mqp = sizes.map(
+  bp => `@media print, screen and (min-width: ${bp}px)`,
+)
+
 export const global = {
   bodybgcolor: "rgb(204, 204, 204)",
   bgcolor: "#3b424d",
@@ -29,6 +44,9 @@ export const global = {
 export const Theme = () => (
   <Global
     styles={{
+      html: {
+        fontSize: 16,
+      },
       body: {
         backgroundColor: colors.bodybgcolor,
         color: "#4a4a4a",

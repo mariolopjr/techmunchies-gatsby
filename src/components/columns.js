@@ -2,6 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 
 import styled from "@emotion/styled"
+import { mqp } from "./styles"
 
 const ColumnsStyled = styled.div({
   marginLeft: "-.75rem",
@@ -12,7 +13,7 @@ const ColumnsStyled = styled.div({
     marginBottom: "-.75rem",
   },
 
-  "@media print, screen and (min-width: 769px)": {
+  [mqp[0]]: {
     display: "flex",
   },
 })

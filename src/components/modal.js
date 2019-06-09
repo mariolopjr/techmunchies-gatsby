@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 
 import styled from "@emotion/styled"
-import { colors } from "./styles"
+import { colors, mqp } from "./styles"
 
 const modalState = {
   true: {
@@ -40,8 +40,9 @@ const ModalBackground = styled.div({
 
 const ModalContent = styled.div({
   color: colors.modalTextColor,
+  zIndex: "60",
 
-  "@media print, screen and (min-width: 769px)": {
+  [mqp[0]]: {
     margin: "0 auto",
     maxHeight: "calc(100vh - 40px)",
     overflow: "auto",
@@ -79,6 +80,7 @@ const ModalButton = styled.button({
   top: 20,
   userSelect: "none",
   verticalAlign: "top",
+  zIndex: "60",
 
   ":active, :focus, :hover": {
     backgroundColor: colors.modalBtnHoverColor,

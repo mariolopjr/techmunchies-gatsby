@@ -1,5 +1,4 @@
 ---
-templateKey: blog-post
 title: A New Start
 date: '2018-01-04T09:54:15-05:00'
 description: >-

@@ -1,5 +1,4 @@
 ---
-templateKey: blog-post
 title: Chromecast review
 date: '2013-08-01T09:43:06-04:00'
 description: Chromecast tweet by Ars Technica

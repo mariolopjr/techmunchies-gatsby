@@ -1,5 +1,4 @@
 ---
-templateKey: blog-post
 title: Motorola X photos and specs
 date: '2013-07-21T09:39:12-04:00'
 description: Motorola X tweet

@@ -1,5 +1,4 @@
 ---
-templateKey: blog-post
 title: Intel Smart Response Technology SSD Caching
 date: '2014-01-18T09:44:37-05:00'
 description: >-

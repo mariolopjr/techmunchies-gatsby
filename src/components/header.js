@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 
 import styled from "@emotion/styled"
-import { colors } from "./styles"
+import { colors, mq } from "./styles"
 
 const Nav = styled.nav({
   alignItems: "stretch",
@@ -16,7 +16,11 @@ const Nav = styled.nav({
 
 const navContainerStates = {
   true: {
+    boxShadow: "0 8px 16px rgba(10,10,10,.1)",
     display: "block",
+    left: 0,
+    position: "absolute",
+    top: "2.2rem",
   },
 }
 
@@ -25,7 +29,7 @@ const NavContainer = styled.div(
     display: "none",
     transition: "max-height .2s ease-out",
 
-    "@media screen and (min-width: 1088px)": {
+    [mq[0]]: {
       flexGrow: 1,
       flexShrink: 0,
       alignItems: "stretch",
@@ -43,7 +47,6 @@ const NavContainerEnd = styled.div({
 
 const menuButtonStates = {
   true: {
-    backgroundColor: "rgba(0,0,0,.05)",
     color: "white",
     outlineWidth: 0,
 
@@ -74,7 +77,7 @@ const MenuButton = styled.a(
     marginLeft: "auto",
     textDecoration: "none",
 
-    "@media screen and (min-width: 1088px)": {
+    [mq[0]]: {
       display: "none",
     },
   },
