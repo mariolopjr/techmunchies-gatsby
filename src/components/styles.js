@@ -28,17 +28,6 @@ export const mqp = sizes.map(
   bp => `@media print, screen and (min-width: ${bp}px)`
 )
 
-export const global = {
-  bodybgcolor: "rgb(204, 204, 204)",
-  bgcolor: "#3b424d",
-  textcolor: "#ccc",
-  selectionColor: "#99a6b2",
-  colorAccent: "white",
-  textShadowColor: "#3b424d",
-  fontFamily: `-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,
-    Cantarell,Fira Sans,Droid Sans,Helvetica Neue,Helvetica,Arial,sans-serif;`,
-}
-
 export const Theme = () => (
   <Global
     styles={{

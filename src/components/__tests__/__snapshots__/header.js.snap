@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header renders correctly 1`] = `
+<nav
+  className="css-1on83g2-Nav e1a59lgm0"
+>
+  <div
+    className="css-1k2ouqc-NavBrand e1a59lgm5"
+  >
+    <a
+      className="css-wbn05c-NavBrandLink e1a59lgm6"
+      href="/"
+    >
+      techmunchies
+    </a>
+    <a
+      aria-expanded={false}
+      aria-label="menu"
+      className="css-1lsnd9l-MenuButton e1a59lgm3"
+      onClick={[Function]}
+      role="button"
+    >
+      <span
+        aria-hidden="true"
+        className="css-w3xjge-MenuButtonBar e1a59lgm4"
+      />
+      <span
+        aria-hidden="true"
+        className="css-w3xjge-MenuButtonBar e1a59lgm4"
+      />
+      <span
+        aria-hidden="true"
+        className="css-w3xjge-MenuButtonBar e1a59lgm4"
+      />
+    </a>
+  </div>
+  <div
+    className="css-klxq16-NavContainer e1a59lgm1"
+  >
+    <div
+      className="css-13wg8wn-NavContainerEnd e1a59lgm2"
+    >
+      <div
+        className="css-y16p2q-NavLinkContainer e1a59lgm7"
+      >
+        <a
+          className="css-f83ofw-NavLink e1a59lgm8"
+          href="/"
+        >
+          home
+        </a>
+        <a
+          className="css-f83ofw-NavLink e1a59lgm8"
+          href="/projects/"
+        >
+          projects
+        </a>
+        <a
+          className="css-f83ofw-NavLink e1a59lgm8"
+          href="/blog/"
+        >
+          blog
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+`;

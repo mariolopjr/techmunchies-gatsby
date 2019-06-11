@@ -1,6 +1,10 @@
 import fetch from "node-fetch"
 
-const { CLOUDFLARE_ZONE_ID, CLOUDFLARE_EMAIL, CLOUDFLARE_AUTH_KEY } = process.env
+const {
+  CLOUDFLARE_ZONE_ID,
+  CLOUDFLARE_EMAIL,
+  CLOUDFLARE_AUTH_KEY,
+} = process.env
 
 exports.handler = async (event, context) => {
   const apiUrl = `https://api.cloudflare.com/client/v4/zones/${CLOUDFLARE_ZONE_ID}/purge_cache`
@@ -13,7 +17,7 @@ exports.handler = async (event, context) => {
       "Content-Type": "application/json",
     },
     method: "POST",
-    body: JSON.stringify({ "purge_everything": true })
+    body: JSON.stringify({ purge_everything: true }),
   })
     .then(() => ({
       statusCode: 200,
