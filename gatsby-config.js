@@ -94,10 +94,10 @@ module.exports = {
             "X-Content-Type-Options: nosniff",
           ],
           "/sw.js": [
-            "Cache-Control: no-cache",
+            "Cache-Control: public, max-age=0, must-revalidate",
           ],
           "/*.html": [
-            "Cache-Control: no-cache",
+            "Cache-Control: public, max-age=0, must-revalidate",
             "X-Frame-Options: DENY",
             "X-XSS-Protection: 1; mode=block",
           ],
