@@ -42,7 +42,7 @@
     "babel-jest": "^24.8.0",
     "babel-plugin-emotion": "^10.0.15",
     "babel-preset-gatsby": "^0.2.8",
-    "flow-bin": "^0.105.0",
+    "flow-bin": "^0.105.1",
     "http-proxy-middleware": "^0.19.1",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.8.0",
