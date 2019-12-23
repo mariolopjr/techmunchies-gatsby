@@ -5,8 +5,8 @@
   "version": "0.1.0",
   "author": "Mario Lopez <mario@techmunchies.net>",
   "dependencies": {
-    "@emotion/core": "^10.0.22",
-    "@emotion/styled": "^10.0.23",
+    "@emotion/core": "^10.0.27",
+    "@emotion/styled": "^10.0.27",
     "@mdx-js/mdx": "^1.5.3",
     "@mdx-js/react": "^1.5.3",
     "@mdx-js/tag": "^0.20.3",
@@ -40,7 +40,7 @@
   },
   "devDependencies": {
     "babel-jest": "^24.9.0",
-    "babel-plugin-emotion": "^10.0.23",
+    "babel-plugin-emotion": "^10.0.27",
     "babel-preset-gatsby": "^0.2.26",
     "flow-bin": "^0.114.0",
     "http-proxy-middleware": "^0.20.0",
