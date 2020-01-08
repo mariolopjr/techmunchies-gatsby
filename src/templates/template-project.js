@@ -1,181 +1,244 @@
 import React from "react"
 import { graphql } from "gatsby"
+import Link from "gatsby-link"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-import Columns from "../components/columns"
-import Column from "../components/column"
+import Arrow from "../components/arrow"
+import Image from "../components/image"
 import Section from "../components/section"
 
 import { css } from "@emotion/core"
 import styled from "@emotion/styled"
 import { colors, mq } from "../components/styles"
 
-const sectionStyles = css({
+const ProjectContainer = styled.div({
   margin: "0 auto",
-  maxWidth: "60em",
 })
 
-const columnStyles = css({
-  color: "white",
-  flex: "none",
-  marginLeft: "4.33333%",
-  width: "83.33333%",
+const ProjectDetails = styled.div({
+  display: "inline-block",
+  margin: "1.5rem 0.5rem 2.5rem 0.5rem",
+  maxWidth: "100%",
 
   [mq[0]]: {
-    marginLeft: "8.33333%",
+    maxWidth: "40%",
   },
 })
 
-const PostContainer = styled.div({
-  margin: "0 auto",
+const ProjectHeroContainer = styled.div({
+  display: "block",
+  marginBottom: "1.5rem",
+  padding: "0 4rem"
 })
 
-const PostTitle = styled.h1({
-  fontSize: "2rem",
-  fontWeight: 500,
-  lineHeight: 1.125,
-  marginBottom: "1.5rem",
+const ProjectImage = styled.div({
+  display: "inline-block",
+  height: "100%",
   textAlign: "center",
+})
+
+const ProjectTagline = styled.p({
+  fontSize: "2.5rem",
+  fontWeight: 500,
+  marginBottom: "1rem",
   wordBreak: "break-word",
 
   [mq[0]]: {
-    fontSize: "3rem",
-    fontWeight: 600,
+    fontSize: "4.69rem",
   },
 })
 
-const PostDate = styled.p({
-  fontSize: 12,
-  letterSpacing: 1.3,
-  marginBottom: "1em",
-  opacity: 0.7,
-  textAlign: "center",
-})
-
-const PostDescription = styled.p({
+const ProjectTitle = styled.h1({
   fontSize: "1.5rem",
-  marginBottom: "1em",
-  opacity: 0.8,
-  textAlign: "center",
+  fontWeight: 300,
+  lineHeight: "2rem",
+  marginBottom: "5rem",
+  wordBreak: "break-word",
+
+  a: {
+    borderBottomWidth: "6px",
+    borderBottomStyle: "solid",
+    borderBottomColor: colors.bgcolor,
+    opacity: 0.9,
+    textDecoration: "none",
+  },
 
   [mq[0]]: {
-    fontSize: "2rem",
+    fontSize: "3.7rem",
+    fontWeight: 400,
+    lineHeight: "4.2rem",
   },
-})
-
-const PostSeparator = styled.hr({
-  backgroundColor: "white",
-  marginLeft: "0 auto",
-  maxWidth: "33%",
-  opacity: 0.5,
 })
 
 const PostContent = styled.p({
-  maxWidth: "40em",
-  margin: "0px auto",
-  opacity: 0.8,
-})
+  color: "white",
+  fontSize: "1rem",
+  margin: "0 auto",
+  opacity: 0.9,
+  padding: "1rem",
 
-const postContentStyles = css({
-  a: {
-    boxShadow: `
-        0 -1px 0 0 ${colors.textShadowColor} inset,
-        0 -2px 0 0 transparent inset`,
-    color: colors.colorAccent,
-    fontWeight: 300,
-    opacity: 0.7,
-    textDecoration: "none",
-    textShadow: `
-          0px -2px 0 ${colors.textShadowColor},  0px -1px 0 ${
-      colors.textShadowColor
-    },  0px 0px 0 ${colors.textShadowColor},
-          2px -2px 0 ${colors.textShadowColor},  2px -1px 0 ${
-      colors.textShadowColor
-    },  2px 0px 0 ${colors.textShadowColor},
-          -2px -2px 0 ${colors.textShadowColor}, -2px -1px 0 ${
-      colors.textShadowColor
-    }, -2px 0px 0 ${colors.textShadowColor},
-          1px -2px 0 ${colors.textShadowColor},  1px -1px 0 ${
-      colors.textShadowColor
-    },  1px 0px 0 ${colors.textShadowColor},
-          -1px -2px 0 ${colors.textShadowColor}, -1px -1px 0 ${
-      colors.textShadowColor
-    }, -1px 0px 0 ${colors.textShadowColor},
-          0px -2px 0 ${colors.textShadowColor},  0px -1px 0 ${
-      colors.textShadowColor
-    },  0px 0px 0 ${colors.textShadowColor}`,
-    transition: "all .3s ease-in",
-
-    ":active, :focus, :hover": {
-      boxShadow: `0 -1px 0 0 ${colors.colorAccent} inset, 0 -2px 0 0 ${
-        colors.textShadowColor
-      }`,
-      color: "white",
-      opacity: 0.9,
-      transition: "all .3s ease-out",
-    },
-
-    "::selection": {
-      background: colors.colorAccent,
-      color: colors.textShadowColor,
-      textShadow: "none",
-    },
+  p: {
+    margin: "0 auto",
+    maxWidth: "40rem",
   },
 
-  ".gatsby-resp-image-image": {
-    borderRadius: 6,
-    boxShadow:
-      "rgba(0, 0, 0, 0.4) 0px 3px 8px 0px, rgba(0, 0, 0, 0.16) 0px 0px 0px 1px",
+  [mq[0]]: {
+    fontSize: "1.25rem",
   },
 })
 
-const ProjectTemplate = ({ data: { markdownRemark: post } }) => (
-  <Layout>
-    <SEO
-      description={post.frontmatter.description}
-      title={post.frontmatter.title}
-    />
-    <Section styles={sectionStyles}>
-      <PostContainer>
-        <Columns>
-          <Column styles={columnStyles}>
-            <PostTitle>{post.frontmatter.title}</PostTitle>
-            <PostDescription>{post.frontmatter.tagline}</PostDescription>
-            <PostSeparator />
-            <PostDate>{post.frontmatter.date}</PostDate>
-            <PostContent
-              dangerouslySetInnerHTML={{ __html: post.html }}
-              css={postContentStyles}
-            />
-          </Column>
-        </Columns>
-      </PostContainer>
-    </Section>
-  </Layout>
-)
+const NavToProjects = styled(Link)({
+  fontSize: "1rem",
+  textDecoration: "none",
+  transitionDuration: "250ms",
+  transitionTimingFunction: "ease-in-out",
+  transitionDelay: "initial",
+  transitionProperty: "color",
+
+  ":active, :focus, :hover": {
+    svg: {
+      transform: "rotate(180deg), translateX(0.25rem)",
+    },
+  },
+
+  [mq[0]]: {
+    fontSize: "1.2rem",
+  },
+})
+
+const arrowStyles = css({
+  marginRight: "0.5rem",
+  transform: "rotate(180deg)",
+  transitionDuration: "600ms",
+  transitionTimingFunction: "cubic-bezier(0.25, 1, 0.25, 1)",
+  transitionDelay: "initial",
+  transitionProperty: "transform",
+  verticalAlign: "middle",
+
+  g: {
+    stroke: "currentcolor",
+    transitionDuration: "250ms",
+    transitionTimingFunction: "ease-in-out",
+    transitionDelay: "initial",
+    transitionProperty: "color",
+  }
+})
+
+const imageStyles = css({
+  borderRadius: 0,
+})
+
+const sectionStyles = css({
+  margin: "0",
+  marginTop: "0.5rem",
+  padding: "0",
+})
+
+const ProjectTemplate = ({ data: { markdownRemark: project, allFile: { edges: images } } }) => {
+  const { node: cover } = images.find(
+    image => image.node.childImageSharp.fluid.originalName = "cover.png"
+  )
+  const { frontmatter: fm } = project
+
+  return (
+    <Layout>
+      <SEO
+        description={fm.description}
+        title={fm.title}
+      />
+      <Section styles={sectionStyles}>
+        <ProjectContainer>
+          <ProjectHeroContainer css={{backgroundColor: fm.maincolor}}>
+            <ProjectDetails>
+              <ProjectTagline css={{color: fm.taglinecolor}}>
+                {fm.tagline}
+              </ProjectTagline>
+              <ProjectTitle>
+                <a
+                  href={fm.link}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  css={{
+                    color: fm.titlecolor
+                  }}
+                >
+                  {fm.title}
+                </a>
+              </ProjectTitle>
+              <NavToProjects
+                css={{
+                  color: fm.titlecolor,
+
+                  ":active, :focus, :hover": {
+                    color: fm.hovercolor,
+
+                    svg: {
+                      color: fm.hovercolor,
+                    },
+                  }
+                }}
+                to={"/projects"}
+              >
+                <Arrow
+                  styles={css({
+                    color: fm.titlecolor,
+                  }, arrowStyles)}
+                />
+                Back to projects
+              </NavToProjects>
+            </ProjectDetails>
+            <ProjectImage>
+              <Image sizes={cover.childImageSharp.fluid} styles={imageStyles} />
+            </ProjectImage>
+          </ProjectHeroContainer>
+          <PostContent
+            dangerouslySetInnerHTML={{ __html: project.html }}
+          />
+        </ProjectContainer>
+      </Section>
+    </Layout>
+  )
+}
 
 export default ProjectTemplate
 
 export const pageQuery = graphql`
-  query($id: String!) {
+  query($id: String!, $relativeDir: String!) {
     markdownRemark(id: { eq: $id }) {
       id
       fields {
         slug
       }
       frontmatter {
-        date(formatString: "YYYY")
         description
         tagline
         title
+        link
+        maincolor
+        titlecolor
+        taglinecolor
+        hovercolor
       }
       html
     }
-    site {
-      siteMetadata {
-        title
+    allFile(
+      filter: {
+        extension: { in: ["jpg", "png"] }
+        relativeDirectory: { eq: $relativeDir }
+      }
+    ) {
+      edges {
+        node {
+          id
+          childImageSharp {
+            fluid(maxWidth: 640) {
+              ...GatsbyImageSharpFluid_withWebp_tracedSVG
+              originalName
+            }
+          }
+        }
       }
     }
   }

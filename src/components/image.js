@@ -25,7 +25,7 @@ const ImageStyled = styled(Img)({
   },
 })
 
-const Image = ({ children, sizes, styles }) => (
+const Image = ({ sizes, styles }) => (
   <ImageStyled css={styles} sizes={sizes} />
 )
 

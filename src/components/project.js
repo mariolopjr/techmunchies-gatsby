@@ -31,21 +31,21 @@ const linkStyles = css({
   textDecoration: "none",
 })
 
-const Project = ({ cover, description, styles, title, to }) => (
+const Project = ({ cover, styles, tagline, title, to }) => (
   <Column
     styles={styles}
   >
     <Link to={to} css={linkStyles}>
       <Image sizes={cover} styles={imageStyles} />
-      <ProjectDescription>{title} — {description}</ProjectDescription>
+      <ProjectDescription>{title} — {tagline}</ProjectDescription>
     </Link>
   </Column>
 )
 
 Project.propTypes = {
   cover: PropTypes.object.isRequired,
-  description: PropTypes.string.isRequired,
   styles: PropTypes.object,
+  tagline: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   to: PropTypes.string.isRequired,
 }

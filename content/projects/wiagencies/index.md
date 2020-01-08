@@ -2,36 +2,17 @@
 title: World Insurance
 date: '2018-04-28T05:00:00-05:00'
 description: >-
-  This project is wonderous
+  Minimal insurance site built for everyone
 tagline: >-
-  This is a test yo
+  Minimal insurance site built for everyone
+link: https://wiagencies.com
+maincolor: "#209cee"
+titlecolor: "#000"
+taglinecolor: "#000"
+hovercolor: "#fff"
 draft: false
 ---
-*test*  
-hah  
-_not me_
-[linky](https://apple.com)  
-*test*  
-hah  
-_not me_  
-*test*  
-hah  
-_not me_  
-*test*  
-hah  
-_not me_  
-*test*  
-hah  
-_not me_  
-*test*  
-hah  
-_not me_  
-*test*  
-hah  
-_not me_  
-*test*  
-hah  
-_not me_  
-*test*  
-hah  
-_not me_  
+World Insurance wanted one thing above else, simplicity. All the information
+visitors to the site would need on a single page, with a call to action inviting
+you to enroll. Life's too busy to navigate complex insurance sites, so
+here's to not being complicated!

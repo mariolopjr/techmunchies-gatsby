@@ -9,8 +9,9 @@ import Container from "../components/container"
 import Project from "../components/project"
 import Section from "../components/section"
 
+import { css } from "@emotion/core"
 import styled from "@emotion/styled"
-import { mqp } from "../components/styles"
+import { mq } from "../components/styles"
 
 const PostHero = styled.div({
   color: "white",
@@ -24,7 +25,7 @@ const PostHeroTitle = styled.h1({
   marginBottom: "1.5rem",
   wordBreak: "break-word",
 
-  [mqp[0]]: {
+  [mq[0]]: {
     fontSize: "3rem",
     fontWeight: 600,
   },
@@ -33,11 +34,20 @@ const PostHeroTitle = styled.h1({
 const PostHeroContent = styled.div({
   fontSize: "1.5rem",
   fontWeight: 400,
-  marginBottom: "1.2em",
+  marginBottom: "1.8em",
   opacity: 0.8,
 
-  [mqp[0]]: {
+  [mq[0]]: {
     fontSize: "2rem",
+    marginBottom: "1.2em",
+  },
+})
+
+const projectStyles = css({
+  marginBottom: "2rem",
+
+  [mq[0]]: {
+    marginBottom: 0,
   },
 })
 
@@ -56,7 +66,7 @@ const ProjectPage = ({ data }) => {
           <PostHero>
             <PostHeroTitle>our projects</PostHeroTitle>
             <PostHeroContent>
-              We love creating blazing fast and beautiful sites, that are
+              We love to create blazing fast and beautiful sites, that are
               maintenance free, allowing your company to focus on more important
               issues.
             </PostHeroContent>
@@ -66,7 +76,8 @@ const ProjectPage = ({ data }) => {
               <Project
                 key={project.id}
                 cover={covers[project.parent.relativeDirectory]}
-                description={project.frontmatter.description}
+                styles={projectStyles}
+                tagline={project.frontmatter.tagline}
                 title={project.frontmatter.title}
                 to={project.fields.slug}
               />
@@ -84,7 +95,10 @@ export const pageQuery = graphql`
   query ProjectPageQuery {
     allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] }
-      filter: { fileAbsolutePath: { regex: "/projects/" } }
+      filter: {
+        fileAbsolutePath: { regex: "/projects/" }
+        frontmatter: { draft: { ne: true } }
+      }
     ) {
       edges {
         node {
@@ -95,8 +109,7 @@ export const pageQuery = graphql`
           frontmatter {
             title
             date
-            description
-            draft
+            tagline
           }
           html
           parent {
@@ -120,8 +133,6 @@ export const pageQuery = graphql`
           childImageSharp {
             fluid(maxWidth: 570) {
               ...GatsbyImageSharpFluid_withWebp_tracedSVG
-              presentationWidth
-              presentationHeight
             }
           }
           relativeDirectory
