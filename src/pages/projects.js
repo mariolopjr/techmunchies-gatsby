@@ -1,60 +1,78 @@
-import React, { useState } from "react"
+import React from "react"
 import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 import Columns from "../components/columns"
-import Column from "../components/column"
 import Container from "../components/container"
-import Image from "../components/image"
-import Modal from "../components/modal"
+import Project from "../components/project"
 import Section from "../components/section"
 
-import { css } from "@emotion/core"
+import styled from "@emotion/styled"
 import { mqp } from "../components/styles"
 
-const multiLine = css({
-  flexWrap: "wrap",
+const PostHero = styled.div({
+  color: "white",
 })
 
-const halfColumn = css({
+const PostHeroTitle = styled.h1({
+  color: "white",
+  fontSize: "2rem",
+  fontWeight: 500,
+  lineHeight: 1.125,
+  marginBottom: "1.5rem",
+  wordBreak: "break-word",
+
   [mqp[0]]: {
-    width: "50%",
-    padding: 0,
+    fontSize: "3rem",
+    fontWeight: 600,
+  },
+})
+
+const PostHeroContent = styled.div({
+  fontSize: "1.5rem",
+  fontWeight: 400,
+  marginBottom: "1.2em",
+  opacity: 0.8,
+
+  [mqp[0]]: {
+    fontSize: "2rem",
   },
 })
 
 const ProjectPage = ({ data }) => {
   const { edges: posts } = data.allMarkdownRemark
   const covers = data.allFile.edges.reduce((arr, img) => {
-    arr[img.node.relativeDirectory] = img.node.childImageSharp.sizes
+    arr[img.node.relativeDirectory] = img.node.childImageSharp.fluid
     return arr
   }, {})
-  const [modal, showModal] = useState(false)
-  const [title, setTitle] = useState("")
 
   return (
     <Layout>
       <SEO title="projects" />
       <Section>
         <Container>
-          <Columns styles={multiLine}>
-            {posts.map(({ node: post }) => (
-              <Column
-                key={post.id}
-                onClick={() => {
-                  showModal(!modal)
-                  setTitle(post.frontmatter.title)
-                }}
-                styles={halfColumn}
-              >
-                <Image sizes={covers[post.parent.relativeDirectory]} />
-              </Column>
+          <PostHero>
+            <PostHeroTitle>our projects</PostHeroTitle>
+            <PostHeroContent>
+              We love creating blazing fast and beautiful sites, that are
+              maintenance free, allowing your company to focus on more important
+              issues.
+            </PostHeroContent>
+          </PostHero>
+          <Columns>
+            {posts.map(({ node: project }) => (
+              <Project
+                key={project.id}
+                cover={covers[project.parent.relativeDirectory]}
+                description={project.frontmatter.description}
+                title={project.frontmatter.title}
+                to={project.fields.slug}
+              />
             ))}
           </Columns>
         </Container>
-        <Modal onClick={() => showModal(!modal)} state={modal} title={title} />
       </Section>
     </Layout>
   )
@@ -71,12 +89,16 @@ export const pageQuery = graphql`
       edges {
         node {
           id
+          fields {
+            slug
+          }
           frontmatter {
             title
             date
             description
             draft
           }
+          html
           parent {
             ... on File {
               relativeDirectory
@@ -96,8 +118,10 @@ export const pageQuery = graphql`
         node {
           id
           childImageSharp {
-            sizes(maxWidth: 570) {
-              ...GatsbyImageSharpSizes_withWebp_tracedSVG
+            fluid(maxWidth: 570) {
+              ...GatsbyImageSharpFluid_withWebp_tracedSVG
+              presentationWidth
+              presentationHeight
             }
           }
           relativeDirectory

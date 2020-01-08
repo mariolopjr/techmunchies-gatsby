@@ -105,11 +105,16 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
+  const templateTypes = {
+    blog: "template-blog-post.js",
+    projects: "template-project.js",
+  }
+  const templateRegex = /\/(blog|projects)\//
 
   return graphql(`
     {
       allMarkdownRemark(
-        filter: { fileAbsolutePath: { regex: "/blog/" }, frontmatter: { draft: { ne: true } } }
+        filter: { frontmatter: { draft: { ne: true } } }
       ) {
         edges {
           node {
@@ -122,6 +127,7 @@ exports.createPages = ({ graphql, actions }) => {
               date
               description
             }
+            fileAbsolutePath
           }
         }
       }
@@ -129,13 +135,23 @@ exports.createPages = ({ graphql, actions }) => {
   `
 ).then(result => {
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+      const template = templateTypes[
+        node.fileAbsolutePath.match(templateRegex)[1]
+      ]
+
       createPage({
         path: node.fields.slug,
-        component: path.resolve(`${__dirname}/src/templates/template-blog-post.js`),
+        component: path.resolve(`${__dirname}/src/templates/${template}`),
         context: {
           id: node.id,
         },
       })
     })
+  })
+}
+
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    devtool: 'eval-source-map',
   })
 }

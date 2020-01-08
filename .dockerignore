@@ -1,0 +1,6 @@
+.cache
+.devcontainer
+.vscode
+node_modules
+public
+npm-debug.log

@@ -38,13 +38,33 @@ const ModalBackground = styled.div({
   top: 0,
 })
 
+const ModalHeader = styled.div({
+  color: colors.modalTextColor,
+  position: "absolute",
+  top: "10px",
+  zIndex: "60",
+
+  [mqp[0]]: {
+    margin: "0 auto",
+    overflow: "auto",
+    width: 640,
+  },
+})
+
+const ModalHeaderText = styled.div({
+  color: colors.modalTextColor,
+  fontSize: "2.5rem",
+  fontWeight: 300,
+  textAlign: "center",
+})
+
 const ModalContent = styled.div({
   color: colors.modalTextColor,
   zIndex: "60",
 
   [mqp[0]]: {
     margin: "0 auto",
-    maxHeight: "calc(100vh - 40px)",
+    minHeight: "calc(100vh - 40px)",
     overflow: "auto",
     position: "relative",
     width: 640,
@@ -75,7 +95,7 @@ const ModalButton = styled.button({
   minWidth: 32,
   outline: "none",
   pointerEvents: "auto",
-  position: "fixed",
+  position: "absolute",
   right: 20,
   top: 20,
   userSelect: "none",
@@ -112,17 +132,21 @@ const ModalButton = styled.button({
   },
 })
 
-const Modal = ({ onClick, state, title }) => (
+const Modal = ({ content, onClick, state, title }) => (
   <ModalStyled state={state}>
     <ModalBackground className="modal-background" onClick={onClick} />
+    <ModalHeader>
+      <ModalHeaderText>{title}</ModalHeaderText>
+    </ModalHeader>
     <ModalContent>
-      <ModalText>{title}</ModalText>
+      <ModalText dangerouslySetInnerHTML={{ __html: content }} />
     </ModalContent>
     <ModalButton aria-label="close" onClick={onClick} />
   </ModalStyled>
 )
 
 Modal.propTypes = {
+  content: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
   state: PropTypes.bool,
   title: PropTypes.string.isRequired,
