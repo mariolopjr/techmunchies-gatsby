@@ -15,10 +15,13 @@
 	"remoteUser": "node",
 
 	// Uncomment the next line if you will use a ptrace-based debugger like C++, Go, and Rust
-	// "runArgs": [ "--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined" ],
+	"runArgs": [
+		"-e", "DISPLAY=${env:IP}:0",
+		"-v", "/tmp/.X11-unix:/tmp/.X11-unix"
+	],
 
 	// Uncomment the next line to use Docker from inside the container. See https://aka.ms/vscode-remote/samples/docker-in-docker for details.
-	// "mounts": [ "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind" ],
+	// "mounts": [ ],
 
 	// Use 'settings' to set *default* container specific settings.json values on container create.
 	// You can edit these settings after create using File > Preferences > Settings > Remote.
@@ -26,7 +29,7 @@
 		// This will ignore your local shell user setting for Linux since shells like zsh are typically
 		// not in base container images. You can also update this to an specific shell to ensure VS Code
 		// uses the right one for terminals and tasks. For example, /bin/bash (or /bin/ash for Alpine).
-		"terminal.integrated.shell.linux": "/bin/ash"
+		"terminal.integrated.shell.linux": "/bin/bash"
 	},
 
 	// Use 'appPort' to create a container with published ports. If the port isn't working, be sure

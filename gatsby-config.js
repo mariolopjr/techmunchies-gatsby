@@ -86,7 +86,7 @@ module.exports = {
         headers: {
           "/*": [
             "Cache-Control: public, max-age=31536000, immutable",
-            "Content-Security-Policy: script-src 'self' 'unsafe-inline'",
+            "Content-Security-Policy: script-src 'self' 'unsafe-inline' 'unsafe-eval'",
             "Referrer-Policy: same-origin",
             "Strict-Transport-Security: max-age=31536000; includeSubDomains; preload",
           ],
