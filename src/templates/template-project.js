@@ -30,13 +30,24 @@ const ProjectDetails = styled.div({
 const ProjectHeroContainer = styled.div({
   display: "block",
   marginBottom: "1.5rem",
-  padding: "0 4rem"
+  padding: "0 4rem",
+
+  [mq[0]]: {
+    padding: "0 0 0 4rem"
+  },
 })
 
 const ProjectImage = styled.div({
   display: "inline-block",
-  height: "100%",
+  marginBottom: "2rem",
   textAlign: "center",
+  width: "100%",
+
+  [mq[0]]: {
+    height: "100%",
+    // verticalAlign: "middle",
+    width: "55%",
+  },
 })
 
 const ProjectTagline = styled.p({
@@ -128,6 +139,16 @@ const arrowStyles = css({
 
 const imageStyles = css({
   borderRadius: 0,
+  opacity: 1,
+
+  [mq[0]]: {
+    opacity: 1,
+
+    ":active, :focus, :hover": {
+      boxShadow: "0 3px 8px 0 rgba(0,0,0,0.4), 0 0 0 1px rgba(0,0,0,0.16)",
+      cursor: "auto",
+    },
+  },
 })
 
 const sectionStyles = css({
@@ -189,7 +210,10 @@ const ProjectTemplate = ({ data: { markdownRemark: project, allFile: { edges: im
                 Back to projects
               </NavToProjects>
             </ProjectDetails>
-            <ProjectImage>
+            <ProjectImage
+              height={cover.childImageSharp.fluid.presentationHeight}
+              width={cover.childImageSharp.fluid.presentationWidth}
+            >
               <Image sizes={cover.childImageSharp.fluid} styles={imageStyles} />
             </ProjectImage>
           </ProjectHeroContainer>
@@ -236,6 +260,8 @@ export const pageQuery = graphql`
             fluid(maxWidth: 640) {
               ...GatsbyImageSharpFluid_withWebp_tracedSVG
               originalName
+              presentationWidth
+              presentationHeight
             }
           }
         }
