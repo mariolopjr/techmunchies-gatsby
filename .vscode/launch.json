@@ -33,6 +33,16 @@
             "request": "launch",
             "url": "http://localhost:8000",
             "webRoot": "${workspaceFolder}"
+        },
+        {
+            "name": "Launch Cypress",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceRoot}/node_modules/start-server-and-test/src/bin/start",
+            "args": ["develop:vs", "http://0.0.0.0:8000", "cy:open"],
+            "stopOnEntry": false,
+            "runtimeArgs": ["--nolazy"],
+            "sourceMaps": false
         }
     ]
 }
