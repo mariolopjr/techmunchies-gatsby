@@ -33,6 +33,8 @@ module.exports = {
         plugins: [
           `gatsby-remark-autolink-headers`,
           `gatsby-remark-relative-images`,
+          `gatsby-remark-embedder`,
+          `gatsby-remark-code-titles`,
           {
             resolve: `gatsby-remark-images`,
             options: {
@@ -42,14 +44,21 @@ module.exports = {
             }
           },
           `gatsby-remark-responsive-iframe`,
-          `gatsby-remark-code-buttons`,
           {
-            resolve: `gatsby-remark-vscode`,
+            resolve: `gatsby-remark-prismjs`,
             options: {
-              colorTheme: 'Dark+ (default dark)',
-              prefersDarkTheme: 'Dark+ (default dark)',
-              prefersLightTheme: 'Light+ (default light)',
-              injectStyles: true,
+              aliases: {
+                dosini: `ini`,
+                env: `bash`,
+                es6: `js`,
+                flowchart: `none`,
+                gitignore: `none`,
+                gql: `graphql`,
+                htaccess: `apacheconf`,
+                mdx: `markdown`,
+                ml: `fsharp`,
+                styl: `stylus`,
+              },
             },
           },
         ],
@@ -70,7 +79,15 @@ module.exports = {
     },
     `gatsby-plugin-robots-txt`,
     `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-plugin-nprogress`,
+      options: {
+        color: `#CCC`,
+        showSpinner: false,
+      },
+    },
     `gatsby-plugin-emotion`,
+    `gatsby-plugin-netlify-cms`,
     // `gatsby-plugin-sri`, // Issues with certain SRI hashes for webpack, etc.
     `gatsby-plugin-netlify-cache`,
     {
