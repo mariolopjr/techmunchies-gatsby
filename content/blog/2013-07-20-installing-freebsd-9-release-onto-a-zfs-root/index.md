@@ -21,14 +21,14 @@ Insert the DVD into your DVD drive or plug in the USB drive. If your BIOS is not
 ### Step 3a: Create the BOOT and ZFS partitions
 
 If you are doing a single disk installation, create these partitions:
-```bash
+```bash:title=bash
 gpart create -s gpt ada0 $ gpart add -b 34 -s 94 -t freebsd-boot ada0
 gpart add -t freebsd-zfs -l disk0 ada0
 gpart bootcode -b /boot/pmbr -p /boot/gptzfsboot -i 1 ada0
 ```
 
 If you are doing a ZFS Mirror, repeat the procedure onto the second drive:
-```bash
+```bash:title=bash
 gpart create -s gpt ada1
 gpart add -b 34 -s 94 -t freebsd-boot ada1
 gpart add -t freebsd-zfs -l disk1 ada1
@@ -42,13 +42,13 @@ _Note: On your system it may not be ```ada[n]```. If that is the case, substitut
 
 If you have a single disk installation, use this:
 
-```bash
+```bash:title=bash
 zpool create zroot /dev/gpt/disk0
 ```
 
 However, if you are creating a ZFS Mirror, use this instead:
 
-```bash
+```bash:title=bash
 zpool create zroot mirror /dev/gpt/disk0 /dev/gpt/disk1
 ```
 
@@ -59,7 +59,7 @@ This will create a zpool named “zroot”. Even though we now have a pool, it i
 
 This is just a simple task. It makes sure your system is bootable, while setting the ZFS checksum (this helps detect bitrot), and then mounts zroot.
 
-```bash
+```bash:title=bash
 zpool set bootfs=zroot zroot
 zfs set checksum=fletcher4 zroot
 zfs set mountpoint=/mnt zroot
@@ -70,7 +70,7 @@ zfs set mountpoint=/mnt zroot
 
 _Note: **Do not skip this step!** If anything happens to your pool, this cache file can help you. Later in the guide you will save this file onto a permanent location in your new system._
 
-```bash
+```bash:title=bash
 zpool export zroot
 zpool import -o cachefile=/var/tmp/zpool.cache zroot
 ```
@@ -80,7 +80,7 @@ zpool import -o cachefile=/var/tmp/zpool.cache zroot
 
 _Note: You may change the options and filesystems. You can add more or less, it’s up to you. This is what is advised on the FreeBSD Wiki however._
 
-```bash
+```bash:title=bash
 zfs create zroot/usr
 zfs create zroot/usr/home
 zfs create zroot/var
@@ -104,7 +104,7 @@ zfs create -o compression=lzjb -o exec=on -o setuid=off zroot/var/tmp
 
 _Note: You may change the SWAP size depending on your usage. General rule of thumb is twice the amount of RAM, but whether that applies or not still today is a matter of preference. Checksumming will also be disabled, for obvious reasons._
 
-```bash
+```bash:title=bash
 zfs create -V 4G zroot/swap
 zfs set org.freebsd:swap=on zroot/swap
 zfs set checksum=off zroot/swap
@@ -113,7 +113,7 @@ zfs set checksum=off zroot/swap
 
 ### Step 8: Fixing /usr/home permissions
 
-```bash
+```bash:title=bash
 chmod 1777 /mnt/tmp
 cd /mnt ; ln -s usr/home home
 chmod 1777 /mnt/var/tmp
@@ -125,7 +125,7 @@ chmod 1777 /mnt/var/tmp
 No need to change anything here.
 
 [^//]: Fix this so "do" is considered part of the same output!
-```bash
+```bash:title=bash
 sh
 cd /usr/freebsd-dist
 export DESTDIR=/mnt
@@ -138,7 +138,7 @@ for file in base.txz lib32.txz kernel.txz doc.txz ports.txz src.txz;
 
 _Note: **Make sure to not skip this step.**_
 
-```bash
+```bash:title=bash
 cp /var/tmp/zpool.cache /mnt/boot/zfs/zpool.cache
 ```
 
@@ -147,7 +147,7 @@ cp /var/tmp/zpool.cache /mnt/boot/zfs/zpool.cache
 
 This will help get your FreeBSD system up and running.
 
-```bash
+```bash:title=bash
 echo 'zfs_enable="YES"' >> /mnt/etc/rc.conf
 echo 'ifconfig_re0="DHCP"' >> /mnt/etc/rc.conf
 echo 'hostname="pc.mydomain.local"' >> /mnt/etc/rc.conf.local
@@ -163,7 +163,7 @@ _Note: If your ethernet card is not a Realtek card and is an Intel card, use ```
 
 No need to change anything here.
 
-```bash
+```bash:title=bash
 zfs set readonly=on zroot/var/empty
 zfs umount -af
 zfs set mountpoint=legacy zroot

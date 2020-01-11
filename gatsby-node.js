@@ -144,7 +144,6 @@ exports.createPages = ({ graphql, actions }) => {
         component: path.resolve(`${__dirname}/src/templates/${template}`),
         context: {
           id: node.id,
-          relativeDir: (node.fields.slug).slice(1, -1),
         },
       })
     })

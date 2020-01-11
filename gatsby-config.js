@@ -32,7 +32,6 @@ module.exports = {
       options: {
         plugins: [
           `gatsby-remark-autolink-headers`,
-          `gatsby-remark-relative-images`,
           `gatsby-remark-embedder`,
           `gatsby-remark-code-titles`,
           {

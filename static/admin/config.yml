@@ -2,6 +2,8 @@ backend:
   name: git-gateway
   branch: master
 
+publish_mode: editorial_workflow
+
 media_folder: static/media
 public_folder: /media
 
@@ -11,11 +13,30 @@ collections:
     label_singular: 'Post'
     folder: "content/blog"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    path: '{{slug}}/index'
+    path: '{{year}}-{{month}}-{{day}}-{{slug}}/index'
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Draft", name: "draft", widget: "boolean", default: true}
       - {label: "Description", name: "description", widget: "text"}
+      - {label: "Body", name: "body", widget: "markdown"}
+
+  - name: "project"
+    label: "Projects"
+    label_singular: 'Project'
+    folder: "content/projects"
+    create: true
+    path: '{{slug}}/index'
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Draft", name: "draft", widget: "boolean", default: true}
+      - {label: "Cover", name: "cover", widget: "image"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Tagline", name: "tagline", widget: "string"}
+      - {label: "Link", name: "link", widget: "string"}
+      - {label: "Main Color", name: "maincolor", widget: "string"}
+      - {label: "Title Color", name: "titlecolor", widget: "string"}
+      - {label: "Tagline Color", name: "taglinecolor", widget: "string"}
+      - {label: "Hover Color", name: "hovercolor", widget: "string"}
       - {label: "Body", name: "body", widget: "markdown"}

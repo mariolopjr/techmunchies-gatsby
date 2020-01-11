@@ -53,11 +53,6 @@ const projectStyles = css({
 
 const ProjectPage = ({ data }) => {
   const { edges: posts } = data.allMarkdownRemark
-  const covers = data.allFile.edges.reduce((arr, img) => {
-    arr[img.node.relativeDirectory] = img.node.childImageSharp.fluid
-    return arr
-  }, {})
-
   return (
     <Layout>
       <SEO title="projects" />
@@ -75,7 +70,7 @@ const ProjectPage = ({ data }) => {
             {posts.map(({ node: project }) => (
               <Project
                 key={project.id}
-                cover={covers[project.parent.relativeDirectory]}
+                cover={project.frontmatter.cover.childImageSharp.fluid}
                 styles={projectStyles}
                 tagline={project.frontmatter.tagline}
                 title={project.frontmatter.title}
@@ -109,33 +104,16 @@ export const pageQuery = graphql`
           frontmatter {
             title
             date
+            cover {
+              childImageSharp {
+                fluid(maxWidth: 570) {
+                  ...GatsbyImageSharpFluid_withWebp_tracedSVG
+                }
+              }
+            }
             tagline
           }
           html
-          parent {
-            ... on File {
-              relativeDirectory
-            }
-          }
-        }
-      }
-    }
-    allFile(
-      filter: {
-        sourceInstanceName: { eq: "content" }
-        relativePath: { regex: "/projects/" }
-        extension: { in: ["jpg", "png"] }
-      }
-    ) {
-      edges {
-        node {
-          id
-          childImageSharp {
-            fluid(maxWidth: 570) {
-              ...GatsbyImageSharpFluid_withWebp_tracedSVG
-            }
-          }
-          relativeDirectory
         }
       }
     }

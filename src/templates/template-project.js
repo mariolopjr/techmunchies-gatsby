@@ -157,12 +157,8 @@ const sectionStyles = css({
   padding: "0",
 })
 
-const ProjectTemplate = ({ data: { markdownRemark: project, allFile: { edges: images } } }) => {
-  const { node: cover } = images.find(
-    image => image.node.childImageSharp.fluid.originalName = "cover.png"
-  )
+const ProjectTemplate = ({ data: { markdownRemark: project } }) => {
   const { frontmatter: fm } = project
-
   return (
     <Layout>
       <SEO
@@ -211,10 +207,10 @@ const ProjectTemplate = ({ data: { markdownRemark: project, allFile: { edges: im
               </NavToProjects>
             </ProjectDetails>
             <ProjectImage
-              height={cover.childImageSharp.fluid.presentationHeight}
-              width={cover.childImageSharp.fluid.presentationWidth}
+              height={fm.cover.childImageSharp.fluid.presentationHeight}
+              width={fm.cover.childImageSharp.fluid.presentationWidth}
             >
-              <Image sizes={cover.childImageSharp.fluid} styles={imageStyles} />
+              <Image sizes={fm.cover.childImageSharp.fluid} styles={imageStyles} />
             </ProjectImage>
           </ProjectHeroContainer>
           <PostContent
@@ -229,16 +225,23 @@ const ProjectTemplate = ({ data: { markdownRemark: project, allFile: { edges: im
 export default ProjectTemplate
 
 export const pageQuery = graphql`
-  query($id: String!, $relativeDir: String!) {
+  query($id: String!) {
     markdownRemark(id: { eq: $id }) {
       id
       fields {
         slug
       }
       frontmatter {
+        title
+        cover {
+          childImageSharp {
+            fluid(maxWidth: 570) {
+              ...GatsbyImageSharpFluid_withWebp_tracedSVG
+            }
+          }
+        }
         description
         tagline
-        title
         link
         maincolor
         titlecolor
@@ -246,26 +249,6 @@ export const pageQuery = graphql`
         hovercolor
       }
       html
-    }
-    allFile(
-      filter: {
-        extension: { in: ["jpg", "png"] }
-        relativeDirectory: { eq: $relativeDir }
-      }
-    ) {
-      edges {
-        node {
-          id
-          childImageSharp {
-            fluid(maxWidth: 640) {
-              ...GatsbyImageSharpFluid_withWebp_tracedSVG
-              originalName
-              presentationWidth
-              presentationHeight
-            }
-          }
-        }
-      }
     }
   }
 `

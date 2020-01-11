@@ -1,6 +1,7 @@
 ---
 title: West Point Real Estate
 date: '2017-01-01T05:00:00-05:00'
+cover: cover.png
 description: >-
   Your dream home, found
 tagline: >-
