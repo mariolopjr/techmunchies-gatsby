@@ -34,6 +34,7 @@ export const Theme = () => (
       html: {
         fontSize: 16,
       },
+
       body: {
         backgroundColor: colors.bodybgcolor,
         color: "#4a4a4a",
@@ -45,9 +46,26 @@ export const Theme = () => (
         padding: 0,
         textRendering: "optimizeLegibility",
       },
+
       "::selection": {
         background: colors.selectionColor,
       },
+
+      ".gatsby-code-title": {
+        backgroundColor: "white",
+        borderTopLeftRadius: "0.3em",
+        borderTopRightRadius: "0.3em",
+        color: "black",
+        fontFamily: colors.fontFamily,
+        marginBottom: "-0.6rem",
+        padding:" 0.5em 1em",
+        zIndex: 0,
+      },
+
+      "pre[class*=\"language-\"]": {
+        border: "none",
+        borderRadius: 0,
+      }
     }}
   />
 )
