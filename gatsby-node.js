@@ -92,6 +92,14 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       from: "/how-to-easily-add-prism-to-ghost-blog",
       to: "/blog/2018-04-22-how-to-easily-add-prism-to-ghost-blog"
     },
+    {
+      from: "/projects/wiagencies",
+      to: "/projects/world-insurance"
+    },
+    {
+      from: "/projects/westpointrealtors",
+      to: "/projects/west-point-real-estate"
+    },
   ]
 
   redirects.forEach(({ from, to }) => {
