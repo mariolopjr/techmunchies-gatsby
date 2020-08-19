@@ -28,7 +28,7 @@
     "gatsby-plugin-sri": "^1.1.0",
     "gatsby-remark-autolink-headers": "^2.3.11",
     "gatsby-remark-code-titles": "^1.1.0",
-    "gatsby-remark-embedder": "^1.16.0",
+    "gatsby-remark-embedder": "^3.0.0",
     "gatsby-remark-images": "^3.3.25",
     "gatsby-remark-prismjs": "^3.5.10",
     "gatsby-remark-responsive-iframe": "^2.4.12",
