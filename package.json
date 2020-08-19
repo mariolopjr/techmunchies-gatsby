@@ -48,7 +48,7 @@
     "babel-preset-gatsby": "^0.5.5",
     "cypress": "^3.8.3",
     "flow-bin": "^0.131.0",
-    "http-proxy-middleware": "^0.21.0",
+    "http-proxy-middleware": "^1.0.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.9.0",
     "netlify-lambda": "^1.6.3",
