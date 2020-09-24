@@ -15,7 +15,7 @@ exports.handler = async (event, context) => {
       const data = {
         name: "techmunchies AltStore Apps",
         identifier: "net.techmunchies.altstore",
-        sourceURL: "https://techmunchies.net/ppsspp-altstore",
+        sourceURL: "https://techmunchies.net/.netlify/functions/altstore",
         apps: [
           {
             name: "PPSSPP",
