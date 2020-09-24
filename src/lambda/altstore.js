@@ -42,7 +42,6 @@ exports.handler = async (event, context) => {
             identifier: "psspp-altstore-available",
             caption: "An easy to use AltStore repo for PPSSPP (and future apps, maybe?)",
             tintColor: "228B22",
-            imageURL: "",
             appID: "org.ppsspp.ppsspp",
             date: "2020-09-24",
             notify: false
