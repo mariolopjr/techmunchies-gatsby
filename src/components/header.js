@@ -302,7 +302,7 @@ const Header = ({ siteName }) => {
             <NavLink to="/">home</NavLink>
             <NavLink to="/projects/">projects</NavLink>
             <NavLink to="/blog/">blog</NavLink>
-            <NavLinkExternal href="/.netlify/functions/altstore">altstore</NavLinkExternal>
+            <NavLinkExternal href="altstore://source?url=https://techmunchies.net/.netlify/functions/altstore">altstore</NavLinkExternal>
           </NavLinkContainer>
         </NavContainerEnd>
       </NavContainer>
