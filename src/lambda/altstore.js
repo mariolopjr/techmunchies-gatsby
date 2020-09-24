@@ -24,11 +24,11 @@ exports.handler = async (event, context) => {
             version: json["name"],
             versionDate: json["published_at"],
             versionDescription: json["name"],
-            downloadURL: release_ipa[0]["url"],
+            downloadURL: release_ipa[0]["browser_download_url"],
             localizedDescription: "PPSSPP can run your PSP games on your iPhone and iPad in full HD resolution. It can even upscale textures that would otherwise be too blurry as they were made for the small screen of the original PSP. Even on modern iPhones and iPads, you can often run at double the original resolution.",
             iconURL: "https://github.com/mariolopjr/ppsspp-builder/raw/master/org.ppsspp.ppsspp.png",
             tintColor: "018084",
-            size: 2670168,
+            size: release_ipa[0]["size"],
             screenshotURLs: [
               "https://www.ppsspp.org/img/screens/small/Final_Fantasy_Type-0_-_Drayano.jpg",
               "https://www.ppsspp.org/img/screens/small/monsterhunterfreedomunite.jpg",
