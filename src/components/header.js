@@ -217,6 +217,66 @@ const NavLink = styled(Link)(
   props => NavLinkActiveStyle[props.isCurrent]
 )
 
+const NavLinkExternal = styled.a(
+  {
+    color: colors.textcolor,
+    cursor: "pointer",
+    alignItems: "center",
+    display: "flex",
+    flexGrow: 0,
+    flexShrink: 0,
+    textDecoration: "none",
+    lineHeight: 1.5,
+    padding: "1rem 1.25rem",
+    position: "relative",
+
+    ":not(:first-of-type):not(:last-of-type)": {
+      padding: "1rem 0.625rem",
+    },
+
+    ":before, :after": {
+      content: '""',
+      position: "absolute",
+      bottom: "2px",
+      left: 0,
+      right: 0,
+      height: "2px",
+      backgroundColor: "white",
+    },
+
+    ":before": {
+      opacity: 0,
+      transform: `translateY(-${distance})`,
+      transition: `transform 0s ${easeOutBack}, opacity 0s`,
+    },
+
+    ":after": {
+      opacity: 0,
+      transform: `translateY(${distance}/2)`,
+      transition: `transform ${duration} ${easeOutBack}, opacity ${duration}`,
+    },
+
+    ":active, :hover, :focus": {
+      color: "white",
+
+      ":before, :after": {
+        opacity: 1,
+        transform: "translateY(0)",
+      },
+
+      ":before": {
+        transition: `transform ${duration} ${easeOutBack}, opacity ${duration}`,
+      },
+
+      ":after": {
+        transition: `transform 0s ${duration} ${easeOutBack}, opacity 0s ${duration}`,
+      },
+    },
+  },
+
+  props => NavLinkActiveStyle[props.isCurrent]
+)
+
 const Header = ({ siteName }) => {
   const [menu, showMenu] = useState(false)
 
@@ -242,6 +302,7 @@ const Header = ({ siteName }) => {
             <NavLink to="/">home</NavLink>
             <NavLink to="/projects/">projects</NavLink>
             <NavLink to="/blog/">blog</NavLink>
+            <NavLinkExternal href="/altstore">altstore</NavLinkExternal>
           </NavLinkContainer>
         </NavContainerEnd>
       </NavContainer>
