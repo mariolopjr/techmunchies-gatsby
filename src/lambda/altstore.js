@@ -21,7 +21,7 @@ exports.handler = async (event, context) => {
             name: "PPSSPP",
             bundleIdentifier: "org.ppsspp.ppsspp",
             developerName: "Henrik Rydgård",
-            version: json["name"],
+            version: json["name"].substring(1),
             versionDate: json["published_at"],
             versionDescription: json["name"],
             downloadURL: release_ipa[0]["browser_download_url"],
