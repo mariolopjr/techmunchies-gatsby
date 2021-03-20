@@ -15,7 +15,7 @@
     "gatsby-mdx": "^0.6.3",
     "gatsby-plugin-emotion": "^4.5.0",
     "gatsby-plugin-manifest": "^2.12.1",
-    "gatsby-plugin-netlify": "^2.11.0",
+    "gatsby-plugin-netlify": "^2.11.1",
     "gatsby-plugin-netlify-cache": "^1.2.0",
     "gatsby-plugin-netlify-cms": "^4.10.0",
     "gatsby-plugin-netlify-functions": "0.0.3",
@@ -35,7 +35,7 @@
     "gatsby-source-filesystem": "^2.11.1",
     "gatsby-transformer-remark": "^2.16.1",
     "gatsby-transformer-sharp": "^2.12.1",
-    "netlify-cms-app": "^2.14.29",
+    "netlify-cms-app": "^2.14.30",
     "prismjs": "^1.23.0",
     "prop-types": "^15.7.2",
     "react": "^16.14.0",
@@ -47,7 +47,7 @@
     "babel-plugin-emotion": "^10.2.2",
     "babel-preset-gatsby": "^0.12.2",
     "cypress": "^3.8.3",
-    "flow-bin": "^0.146.0",
+    "flow-bin": "^0.147.0",
     "http-proxy-middleware": "^0.21.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.9.0",
@@ -55,7 +55,7 @@
     "npm-run-all": "^4.1.5",
     "prettier": "^1.19.1",
     "react-test-renderer": "^16.14.0",
-    "start-server-and-test": "^1.12.0"
+    "start-server-and-test": "^1.12.1"
   },
   "keywords": [
     "gatsby"
