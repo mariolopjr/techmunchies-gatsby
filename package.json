@@ -5,8 +5,8 @@
   "version": "0.1.0",
   "author": "Mario Lopez <mario@techmunchies.net>",
   "dependencies": {
-    "@emotion/core": "^10.1.1",
-    "@emotion/styled": "^10.0.27",
+    "@emotion/core": "^10.3.0",
+    "@emotion/styled": "^10.3.0",
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
     "@mdx-js/tag": "^0.20.3",
