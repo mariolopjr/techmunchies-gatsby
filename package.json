@@ -22,7 +22,7 @@
     "gatsby-plugin-nprogress": "^2.10.0",
     "gatsby-plugin-offline": "^2.2.10",
     "gatsby-plugin-react-helmet": "^3.10.0",
-    "gatsby-plugin-robots-txt": "^1.6.14",
+    "gatsby-plugin-robots-txt": "^1.8.0",
     "gatsby-plugin-sharp": "^2.14.4",
     "gatsby-plugin-sitemap": "^2.12.0",
     "gatsby-plugin-sri": "^1.1.0",
@@ -35,8 +35,8 @@
     "gatsby-source-filesystem": "^2.11.1",
     "gatsby-transformer-remark": "^2.16.1",
     "gatsby-transformer-sharp": "^2.12.1",
-    "netlify-cms-app": "^2.15.63",
-    "prismjs": "^1.26.0",
+    "netlify-cms-app": "^2.15.72",
+    "prismjs": "^1.29.0",
     "prop-types": "^15.8.1",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
@@ -47,7 +47,7 @@
     "babel-plugin-emotion": "^10.2.2",
     "babel-preset-gatsby": "^0.12.3",
     "cypress": "^3.8.3",
-    "flow-bin": "^0.169.0",
+    "flow-bin": "^0.204.0",
     "http-proxy-middleware": "^0.21.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.9.0",
@@ -55,7 +55,7 @@
     "npm-run-all": "^4.1.5",
     "prettier": "^1.19.1",
     "react-test-renderer": "^16.14.0",
-    "start-server-and-test": "^1.14.0"
+    "start-server-and-test": "^1.15.4"
   },
   "keywords": [
     "gatsby"
